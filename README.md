@@ -4,6 +4,8 @@ An automatic trading and insights platform.
 
 #### Setup
 
+Install dependencies
+
 ```
-yarn install - to install dependencies
+yarn install
 ```
