@@ -1,1 +1,69 @@
+.navigation-bar {
+  border: 1px solid black;
+  position: absolute;
+  top: 0%;
+  left: 5%;
+  display: block;
+  width: 90%;
+  height: 15%;
+}
 
+.left-account-summary {
+  border: 1px solid black;
+  position: absolute;
+  top: 15%;
+  left: 5%;
+  display: block;
+  width: 15%;
+  height: 80%;
+}
+
+.top-chart {
+  border: 1px solid black;
+  position: absolute;
+  top: 15%;
+  left: 20%;
+  display: block;
+  width: 60%;
+  height: 60%;
+}
+
+.middle-orders {
+  border: 1px solid black;
+  position: absolute;
+  top: 75%;
+  left: 20%;
+  display: block;
+  width: 60%;
+  height: 20%;
+}
+
+.top-right-news {
+  border: 1px solid black;
+  position: absolute;
+  top: 15%;
+  left: 80%;
+  display: block;
+  width: 15%;
+  height: 40%;
+}
+
+.bottom-right-alt-data {
+  border: 1px solid black;
+  position: absolute;
+  top: 55%;
+  left: 80%;
+  display: block;
+  width: 15%;
+  height: 40%;
+}
+
+.bottom-trading-strategy {
+  border: 1px solid black;
+  position: absolute;
+  top: 95%;
+  left: 5%;
+  display: block;
+  width: 90%;
+  height: 25%;
+}
