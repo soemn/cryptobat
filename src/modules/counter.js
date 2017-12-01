@@ -12,16 +12,17 @@ const initialState = {
 export default (state = initialState, action) => {
   switch (action.type) {
     case INCREMENT_REQUESTED:
-      return {
-        ...state,
-        isIncrementing: true
-      }
+      return state
+    // return {
+    //   ...state,
+    //   isIncrementing: true
+    // }
 
     case INCREMENT:
       return {
         ...state,
-        count: state.count + 1,
-        isIncrementing: !state.isIncrementing
+        count: state.count + 1
+        // isIncrementing: !state.isIncrementing
       }
 
     case DECREMENT_REQUESTED:

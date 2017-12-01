@@ -3,7 +3,8 @@ import { connect } from "react-redux"
 
 const TradeHistory = props => (
   <div className="container">
-    <p>Count: {props.count}</p>
+    <p>Count: {props.test2}</p>
+    <p>Count: {props.test.objectItem}</p>
     <div className="fixedStuff">
       <div className="navigation-bar">
         <p>CRYPTOBAT</p>
@@ -37,7 +38,8 @@ const TradeHistory = props => (
 )
 
 const mapStateToProps = state => ({
-  count: state.counter.count
+  test: state.tradehistory.test,
+  test2: state.counter.count
 })
 
 export default connect(mapStateToProps)(TradeHistory)
