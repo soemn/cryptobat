@@ -13,7 +13,6 @@ import registerServiceWorker from "./registerServiceWorker"
 const target = document.querySelector("#root")
 
 ReactDOM.render(
-  //react router
   <Provider store={store}>
     <ConnectedRouter history={history}>
       <div>
