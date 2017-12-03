@@ -1,44 +1,61 @@
 import React from "react"
+import { push } from "react-router-redux"
+import { bindActionCreators } from "redux"
 import { connect } from "react-redux"
+import {
+  increment,
+  incrementAsync,
+  decrement,
+  decrementAsync
+} from "../reducers/counter"
 
-const TradeHistory = props => (
-  <div className="container">
-    <p>Count: {props.test2}</p>
-    <p>Count: {props.test.objectItem}</p>
-    <div className="fixedStuff">
-      <div className="navigation-bar">
-        <p>CRYPTOBAT</p>
-      </div>
+const Home = props => (
+  <div>
+    <h1>Home</h1>
+    <p>Count: {props.count}</p>
 
-      <div className="left-account-summary">
-        <p>Account Summary</p>
-        {/* render API res for GET https://bittrex.com/api/v1.1/account/getbalances?apikey=API_KEY */}
-      </div>
-      <div className="top-chart">
-        <p>Chart</p>
-        {/* render API res from chart */}
-      </div>
-      <div className="middle-orders">
-        <p>Open Orders/Place Orders</p>
-        {/* render API res for GET https://bittrex.com/api/v1.1/account/getbalances?apikey=API_KEY
-              */}
-      </div>
-      <div className="top-right-news">
-        <p>News</p>
-      </div>
-      <div className="bottom-right-alt-data">
-        <p>Alt Data</p>
-      </div>
-    </div>
-    <div className="bottom-trading-strategy">
-      <p>Trading Strategy #1</p>
-    </div>
+    <p>
+      <button onClick={props.increment} disabled={props.isIncrementing}>
+        Increment
+      </button>
+      <button onClick={props.incrementAsync} disabled={props.isIncrementing}>
+        Increment Async
+      </button>
+    </p>
+
+    <p>
+      <button onClick={props.decrement} disabled={props.isDecrementing}>
+        Decrementing
+      </button>
+      <button onClick={props.decrementAsync} disabled={props.isDecrementing}>
+        Decrement Async
+      </button>
+    </p>
+
+    <p>
+      <button onClick={() => props.changePage()}>
+        Go to trade history page via redux
+      </button>
+    </p>
   </div>
 )
 
 const mapStateToProps = state => ({
-  test: state.tradehistory.test,
-  test2: state.counter.count
+  count: state.counter.count,
+  isIncrementing: state.counter.isIncrementing,
+  isDecrementing: state.counter.isDecrementing
 })
 
-export default connect(mapStateToProps)(TradeHistory)
+const mapDispatchToProps = dispatch =>
+  bindActionCreators(
+    {
+      increment,
+      incrementAsync,
+      decrement,
+      decrementAsync,
+      changePage: () => push("/TradeHistory")
+    },
+    dispatch
+  )
+
+export default connect(mapStateToProps, mapDispatchToProps)(Home)

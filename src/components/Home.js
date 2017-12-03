@@ -1,61 +1,46 @@
 import React from "react"
-import { push } from "react-router-redux"
-import { bindActionCreators } from "redux"
 import { connect } from "react-redux"
-import {
-  increment,
-  incrementAsync,
-  decrement,
-  decrementAsync
-} from "../reducers/counter"
+import { Route } from "react-router-dom"
+import AccountSummary from "./AccountSummary"
+import Chart from "./Chart"
+import Orders from "./Orders"
+import News from "./News"
+import AltData from "./AltData"
+import TradingStrategy from "./TradingStrategy"
 
-const Home = props => (
-  <div>
-    <h1>Home</h1>
-    <p>Count: {props.count}</p>
 
-    <p>
-      <button onClick={props.increment} disabled={props.isIncrementing}>
-        Increment
-      </button>
-      <button onClick={props.incrementAsync} disabled={props.isIncrementing}>
-        Increment Async
-      </button>
-    </p>
+const TradeHistory = props => (
+  <div className="container">
+    <div className="fixedStuff">
 
-    <p>
-      <button onClick={props.decrement} disabled={props.isDecrementing}>
-        Decrementing
-      </button>
-      <button onClick={props.decrementAsync} disabled={props.isDecrementing}>
-        Decrement Async
-      </button>
-    </p>
-
-    <p>
-      <button onClick={() => props.changePage()}>
-        Go to trade history page via redux
-      </button>
-    </p>
+      <div className="left-account-summary">
+        <Route exact path="/" component={AccountSummary} />
+        {/* Soemin's example */}
+        <p>Count: {props.test2}</p>
+        <p>Count: {props.test.objectItem}</p>
+      </div>
+      <div className="top-chart">
+        <Route exact path="/" component={Chart} />
+      </div>
+      <div className="middle-orders">
+        <Route exact path="/" component={Orders} />
+      </div>
+      <div className="top-right-news">
+        <Route exact path="/" component={News} />
+      </div>
+      <div className="bottom-right-alt-data">
+        <Route exact path="/" component={AltData} />
+      </div>
+    </div>
+    <div className="bottom-trading-strategy">
+      <Route exact path="/" component={TradingStrategy} />
+    </div>
   </div>
 )
 
 const mapStateToProps = state => ({
-  count: state.counter.count,
-  isIncrementing: state.counter.isIncrementing,
-  isDecrementing: state.counter.isDecrementing
+  test: state.tradehistory.test,
+  test2: state.counter.count
 })
 
-const mapDispatchToProps = dispatch =>
-  bindActionCreators(
-    {
-      increment,
-      incrementAsync,
-      decrement,
-      decrementAsync,
-      changePage: () => push("/TradeHistory")
-    },
-    dispatch
-  )
-
-export default connect(mapStateToProps, mapDispatchToProps)(Home)
+export default connect(mapStateToProps)(TradeHistory)

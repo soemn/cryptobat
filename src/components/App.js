@@ -1,13 +1,14 @@
 import React from "react"
-import { Route, Link } from "react-router-dom"
+import { Route } from "react-router-dom"
 import Home from "./Home"
 import TradeHistory from "./TradeHistory"
+import NavBar from "./NavBar"
 
 const App = () => (
   <div>
     <header>
-      <Link to="/">Home</Link>
-      <Link to="/tradehistory">Trade View</Link>
+      {/* not 'exact' path so NavBar will show up on all paths with '/' */}
+      <Route path="/" component={NavBar} />
     </header>
 
     <main>
