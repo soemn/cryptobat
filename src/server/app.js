@@ -52,6 +52,10 @@ app.get("/", (req, res) => {
   res.json({ Hi: "Use this format to return a json file." })
 })
 
+app.get("/account_information", (req, res) => {
+  res.json({ Hi: "Use this format to return a json file." })
+})
+
 app.get("/cryptoPanic/:token", (req, res) => {
   let token = req.params.token
 
