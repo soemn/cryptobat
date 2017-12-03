@@ -10,8 +10,9 @@ const methodOverride = require("method-override")
 const bodyParser = require("body-parser")
 const app = express()
 const cors = require("cors")
+const bittrex = require("node-bittrex-api")
 
-const Strategy = require('../models/strategy')
+const Strategy = require("../models/strategy")
 
 let corsOptions = {
   credentials: true,
@@ -36,15 +37,26 @@ app.use(function(req, res, next) {
   console.log("Method: " + req.method + " Path: " + req.url)
   next()
 })
+
+bittrex.options({
+  apikey: process.env.BITTREX_KEY,
+  apisecret: process.env.BITTREX_SECRET
+})
+
 // =================== mongoose and mongodb ===================
 mongoose.Promise = global.Promise
-mongoose.connect(dbUrl, {
-  useMongoClient: true
-})
-.then(
-  () => { console.log('db is connected') },
-  (err) => { console.log(err) }
-)
+mongoose
+  .connect(dbUrl, {
+    useMongoClient: true
+  })
+  .then(
+    () => {
+      console.log("db is connected")
+    },
+    err => {
+      console.log(err)
+    }
+  )
 
 // =================== routes ===================
 
@@ -69,12 +81,21 @@ app.get("/cryptoPanic/:token", (req, res) => {
   })
 })
 
+app.get("/accountSummary", (req, res) => {
+  bittrex.getbalances((data, err) => {
+    if (err) {
+      return console.error(err)
+    }
+    res.json(data)
+  })
+})
+
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`)
 })
 
 // test create a Strategy
-Strategy.create({ TradeType: 'tradesell' }, function (err, strat) {
+Strategy.create({ TradeType: "tradesell" }, function(err, strat) {
   if (err) {
     console.log(err)
     return
