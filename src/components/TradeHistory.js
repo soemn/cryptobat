@@ -30,7 +30,6 @@ const TradeHistory = props => (
         <p>Alt Data</p>
       </div>
     </div>
-
     <div className="bottom-trading-strategy">
       <p>Trading Strategy #1</p>
     </div>
