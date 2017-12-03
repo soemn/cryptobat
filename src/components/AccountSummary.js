@@ -1,12 +1,21 @@
 import React from "react"
+import { connect } from "react-redux"
 
-const AccountSummary = () => (
+const AccountSummary = (props) => (
   <div>
     <h5>Account Summary</h5>
-    <p>Balance: </p>
-    <p>Available: </p>
-    <p>Pending: </p>
+    <p>Balance: {props.balance}</p>
+    <p>Available: {props.available}</p>
+    <p>Pending: {props.pending}</p>
   </div>
 )
 
-export default AccountSummary
+const mapStateToProps = state => ({
+  balance: state.accountSummary.balance,
+  available: state.accountSummary.available,
+  pending: state.accountSummary.pending
+})
+
+
+export default connect(mapStateToProps)(AccountSummary)
+// export default AccountSummary

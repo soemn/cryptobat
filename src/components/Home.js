@@ -9,10 +9,9 @@ import AltData from "./AltData"
 import TradingStrategy from "./TradingStrategy"
 
 
-const TradeHistory = props => (
+const Home = props => (
   <div className="container">
     <div className="fixedStuff">
-
       <div className="left-account-summary">
         <Route exact path="/" component={AccountSummary} />
         {/* Soemin's example */}
@@ -43,4 +42,4 @@ const mapStateToProps = state => ({
   test2: state.counter.count
 })
 
-export default connect(mapStateToProps)(TradeHistory)
+export default connect(mapStateToProps)(Home)
