@@ -11,6 +11,8 @@ const bodyParser = require("body-parser")
 const app = express()
 const cors = require("cors")
 
+const Strategy = require('../models/strategy')
+
 let corsOptions = {
   credentials: true,
   origin: ["http://localhost:3000"],
@@ -35,10 +37,14 @@ app.use(function(req, res, next) {
   next()
 })
 // =================== mongoose and mongodb ===================
+mongoose.Promise = global.Promise
 mongoose.connect(dbUrl, {
   useMongoClient: true
 })
-mongoose.Promise = global.Promise
+.then(
+  () => { console.log('db is connected') },
+  (err) => { console.log(err) }
+)
 
 // =================== routes ===================
 
@@ -65,4 +71,13 @@ app.get("/cryptoPanic/:token", (req, res) => {
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`)
+})
+
+// test create a Strategy
+Strategy.create({ TradeType: 'tradesell' }, function (err, strat) {
+  if (err) {
+    console.log(err)
+    return
+  }
+  console.log(strat.trade())
 })
