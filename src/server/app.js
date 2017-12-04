@@ -11,13 +11,8 @@ const methodOverride = require("method-override")
 const bodyParser = require("body-parser")
 const app = express()
 const cors = require("cors")
-const bittrex = require("node-bittrex-api")
 
 const bittrex = require('node-bittrex-api');
-bittrex.options({
-  'apikey' : process.env.API_KEY,
-  'apisecret' : process.env.API_SECRET,
-});
 
 const Strategy = require('../models/strategy')
 
@@ -86,27 +81,16 @@ app.get("/accountSummary", (req, res) => {
 
 app.get("/cryptoPanic/:token", (req, res) => {
   let token = req.params.token
-
   let requestPath =
     "https://cryptopanic.com/api/posts/?auth_token=" +
     process.env.CRYPTO_PANIC +
     "&currency=" +
     token
-
   request(requestPath, (error, response, body) => {
     if (!error && response.statusCode == 200) {
       let info = JSON.parse(body)
       res.json(info)
     }
-  })
-})
-
-app.get("/accountSummary", (req, res) => {
-  bittrex.getbalances((data, err) => {
-    if (err) {
-      return console.error(err)
-    }
-    res.json(data)
   })
 })
 
