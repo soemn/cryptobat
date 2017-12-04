@@ -1,11 +1,10 @@
 import axios from 'axios'
-import React, { Component } from 'react'
 
 export const LOADNEWS = 'reducers/LOADNEWS'
 
-
-
-
+const initialState = {
+  title: 'test title'
+}
 
 export default (state = initialState, action) => {
   switch (action.type) {
@@ -28,5 +27,4 @@ export const loadNews = () => {
       type: LOADNEWS
     })
   }
-}
 }
