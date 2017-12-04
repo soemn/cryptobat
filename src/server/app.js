@@ -11,6 +11,7 @@ const methodOverride = require("method-override")
 const bodyParser = require("body-parser")
 const app = express()
 const cors = require("cors")
+const schedule = require("node-schedule")
 
 const bittrex = require("node-bittrex-api")
 
@@ -103,7 +104,7 @@ app.listen(port, () => {
 
 // =================== trader function ===================
 
-trader()
+// const autoTrade = schedule.scheduleJob("*/5 * * * * *", trader)
 
 // =================== end of trader function ===================
 

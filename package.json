@@ -12,6 +12,7 @@
     "mongodb": "^2.2.33",
     "mongoose": "^4.13.5",
     "node-bittrex-api": "^0.8.1",
+    "node-schedule": "^1.2.5",
     "nodemon": "^1.12.1",
     "react": "15.x",
     "react-dom": "15.x",
