@@ -13,11 +13,13 @@ class News extends Component {
       <div>
         <h5>News</h5>
         <div>
-          <ul>
+          <ol>
             {this.props.headlines.map(headline => (
-              <li key={headline.title}>{headline.title}</li>
+              <li key={headline.title}>
+                <a href={headline.url}>{headline.title}</a>
+              </li>
             ))}
-          </ul>
+          </ol>
         </div>
       </div>
     )
