@@ -14,7 +14,8 @@ const cors = require("cors")
 
 const bittrex = require('node-bittrex-api');
 
-const Strategy = require('../models/strategy')
+const Strategy = require('./models/strategy')
+const Balance = require('./models/balance')
 
 let corsOptions = {
   credentials: true,
