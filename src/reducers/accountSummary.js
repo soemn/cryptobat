@@ -1,13 +1,13 @@
-import axios from "axios"
+import axios from 'axios'
 
-export const GETBALANCE = "accountSummary/GETBALANCE"
+export const GETBALANCE = 'accountSummary/GETBALANCE'
 
 const initialState = {
-  currency1: "",
+  currency1: '',
   balance1: 0,
   available1: 0,
   pending1: 0,
-  currency2: "",
+  currency2: '',
   balance2: 0,
   available2: 0,
   pending2: 0
@@ -34,12 +34,12 @@ export default (state = initialState, action) => {
 }
 
 export const getBalance = () => dispatch => {
-  axios.get("http://localhost:9000/accountSummary").then(response => {
+  axios.get('http://localhost:9000/accountSummary').then(response => {
     let allBalances = response.data.result
     let passedBalance = []
     // change this value according to dropdown list values
-    const currencyPair1 = "OMG"
-    const currencyPair2 = "ETH"
+    const currencyPair1 = 'OMG'
+    const currencyPair2 = 'ETH'
     for (var i = 0; i < allBalances.length; i++) {
       if (
         allBalances[i].Currency == currencyPair1 ||
