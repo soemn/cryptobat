@@ -1,11 +1,10 @@
 var mongoose = require('mongoose')
 var Schema = mongoose.Schema
 
-// Define collection and schema for Items
 var strategySchema = new Schema(
   {
     TradeType: String, // tradebuy or tradesell
-    MarketName: String,
+    MarketName: String, // BTC-ETH, BTC-OMG, ETH-OMG
     Quantity: Number,
     Rate: Number,
     ConditionType: String, // supported options are 'NONE', 'GREATER_THAN', 'LESS_THAN'

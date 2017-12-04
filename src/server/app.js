@@ -12,9 +12,10 @@ const bodyParser = require("body-parser")
 const app = express()
 const cors = require("cors")
 
-const bittrex = require('node-bittrex-api');
+const bittrex = require("node-bittrex-api")
 
-const Strategy = require('../models/strategy')
+const Strategy = require("./models/strategy")
+const Balance = require("./models/balance")
 
 let corsOptions = {
   credentials: true,
@@ -76,6 +77,7 @@ app.get("/accountSummary", (req, res) => {
       return console.error(err)
     }
     res.json(data)
+    data.result.forEach(bal => Balance.create(bal))
   })
 })
 
@@ -99,10 +101,10 @@ app.listen(port, () => {
 })
 
 // test create a Strategy
-Strategy.create({ TradeType: "tradesell" }, function(err, strat) {
-  if (err) {
-    console.log(err)
-    return
-  }
-  console.log(strat.trade())
-})
+// Strategy.create({ TradeType: "tradesell" }, function(err, strat) {
+//   if (err) {
+//     console.log(err)
+//     return
+//   }
+//   console.log(strat.trade())
+// })

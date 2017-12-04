@@ -1,8 +1,9 @@
-import React from "react"
-import { Route } from "react-router-dom"
-import Home from "./Home"
-import TradeHistory from "./TradeHistory"
-import NavBar from "./NavBar"
+import React from 'react'
+import { Route } from 'react-router-dom'
+import Home from './Home'
+import TradeHistory from './TradeHistory'
+
+import NavBar from './NavBar'
 
 const App = () => (
   <div>
