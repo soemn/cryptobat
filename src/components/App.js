@@ -1,9 +1,9 @@
-import React from 'react'
-import { Route } from 'react-router-dom'
-import Home from './Home'
-import TradeHistory from './TradeHistory'
+import React from "react"
+import { Route } from "react-router-dom"
+import Home from "./Home"
+import TradeHistory from "./TradeHistory"
 
-import NavBar from './NavBar'
+import NavBar from "./NavBar"
 
 const App = () => (
   <div>
@@ -14,7 +14,7 @@ const App = () => (
 
     <main>
       <Route exact path="/" component={Home} />
-      // <Route exact path="/tradehistory" component={TradeHistory} />
+      <Route exact path="/tradehistory" component={TradeHistory} />
     </main>
   </div>
 )
