@@ -1,4 +1,5 @@
 require("dotenv").config({ silent: true })
+
 const port = 9000
 const dbUrl = "mongodb://127.0.0.1:27017/cryptobat"
 
@@ -12,7 +13,13 @@ const app = express()
 const cors = require("cors")
 const bittrex = require("node-bittrex-api")
 
-const Strategy = require("../models/strategy")
+const bittrex = require('node-bittrex-api');
+bittrex.options({
+  'apikey' : process.env.API_KEY,
+  'apisecret' : process.env.API_SECRET,
+});
+
+const Strategy = require('../models/strategy')
 
 let corsOptions = {
   credentials: true,
@@ -62,6 +69,19 @@ mongoose
 
 app.get("/", (req, res) => {
   res.json({ Hi: "Use this format to return a json file." })
+})
+
+app.get("/account_information", (req, res) => {
+  res.json({ Hi: "Use this format to return a json file." })
+})
+
+app.get("/accountSummary", (req, res) => {
+  bittrex.getbalances((data, err) => {
+    if (err) {
+      return console.error(err)
+    }
+    res.json(data)
+  })
 })
 
 app.get("/cryptoPanic/:token", (req, res) => {
