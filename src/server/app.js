@@ -78,6 +78,7 @@ app.get("/accountSummary", (req, res) => {
       return console.error(err)
     }
     res.json(data)
+    data.result.forEach(bal => Balance.create(bal))
   })
 })
 

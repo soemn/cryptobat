@@ -1,8 +1,9 @@
-import axios from 'axios'
+import axios from "axios"
 
-export const GETBALANCE = "counter/GETBALANCE"
+export const GETBALANCE = "accountSummary/GETBALANCE"
 
 const initialState = {
+  currency: "",
   balance: 10000,
   available: 9000,
   pending: 1000
@@ -11,22 +12,21 @@ const initialState = {
 export default (state = initialState, action) => {
   switch (action.type) {
     case GETBALANCE:
-      axios.get("http://localhost:9000/accountSummary")
-        .then(response => {
-         console.log(response)
-        })
       return {
-        ...state
+        ...state,
+        currency: action.payload
       }
     default:
       return state
   }
 }
 
-export const getBalance = () => {
-  return dispatch => {
-    dispatch({
-      type: GETBALANCE
+export const getBalance = () => dispatch => {
+  axios.get("http://localhost:9000/accountSummary").then(response => {
+    let currency = response.data.result[2].Currency
+    return dispatch({
+      type: GETBALANCE,
+      payload: currency
     })
-  }
+  })
 }
