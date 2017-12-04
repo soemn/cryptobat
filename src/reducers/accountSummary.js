@@ -11,13 +11,12 @@ const initialState = {
 export default (state = initialState, action) => {
   switch (action.type) {
     case GETBALANCE:
-      axios.get("http://localhost:9000/account_information")
+      axios.get("http://localhost:9000/accountSummary")
         .then(response => {
-         console.log('hello')
+         console.log(response)
         })
       return {
-        ...state,
-        balance: state.balance + 1,
+        ...state
       }
     default:
       return state
