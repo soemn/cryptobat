@@ -12,10 +12,11 @@ const bodyParser = require("body-parser")
 const app = express()
 const cors = require("cors")
 
-const bittrex = require('node-bittrex-api');
+const bittrex = require("node-bittrex-api")
 
-const Strategy = require('./models/strategy')
-const Balance = require('./models/balance')
+const Strategy = require("./models/strategy")
+const Balance = require("./models/balance")
+const trader = require("./trader/trader")
 
 let corsOptions = {
   credentials: true,
@@ -98,6 +99,12 @@ app.get("/cryptoPanic/:token", (req, res) => {
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`)
 })
+
+// =================== trader function ===================
+
+trader()
+
+// =================== end of trader function ===================
 
 // test create a Strategy
 // Strategy.create({ TradeType: "tradesell" }, function(err, strat) {

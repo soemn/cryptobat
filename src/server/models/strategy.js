@@ -1,4 +1,4 @@
-var mongoose = require('mongoose')
+var mongoose = require("mongoose")
 var Schema = mongoose.Schema
 
 var strategySchema = new Schema(
@@ -11,17 +11,21 @@ var strategySchema = new Schema(
     Target: Number, // used in conjunction with ConditionType
 
     // Fixed. No input allowed by users
-    OrderType: { type: String, default: 'LIMIT' },
-    TimeInEffect: { type: String, default: 'GOOD_TIL_CANCELLED' }
+    OrderType: { type: String, default: "LIMIT" },
+    TimeInEffect: { type: String, default: "GOOD_TIL_CANCELLED" }
   },
   {
     timestamps: true
   }
 )
 
-strategySchema.methods.trade = function () {
-  console.log(`This is a schema method. The trade type for this strategy is ${this.TradeType}`)
+strategySchema.methods.trade = function() {
+  console.log(
+    `This is a schema method. The trade type for this strategy is ${
+      this.OrderType
+    }`
+  )
 }
 
-const Strategy = mongoose.model('Strategy', strategySchema)
+const Strategy = mongoose.model("Strategy", strategySchema)
 module.exports = Strategy
