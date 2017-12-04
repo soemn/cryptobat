@@ -8,15 +8,11 @@ import News from "./News"
 import AltData from "./AltData"
 import TradingStrategy from "./TradingStrategy"
 
-
 const Home = props => (
   <div className="container">
     <div className="fixedStuff">
       <div className="left-account-summary">
         <Route exact path="/" component={AccountSummary} />
-        {/* Soemin's example */}
-        <p>Count: {props.test2}</p>
-        <p>Count: {props.test.objectItem}</p>
       </div>
       <div className="top-chart">
         <Route exact path="/" component={Chart} />
@@ -37,9 +33,4 @@ const Home = props => (
   </div>
 )
 
-const mapStateToProps = state => ({
-  test: state.tradehistory.test,
-  test2: state.counter.count
-})
-
-export default connect(mapStateToProps)(Home)
+export default connect()(Home)
