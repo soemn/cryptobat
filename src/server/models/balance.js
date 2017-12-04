@@ -1,4 +1,4 @@
-var mongoose = require('mongoose')
+var mongoose = require("mongoose")
 var Schema = mongoose.Schema
 
 var balanceSchema = new Schema(
@@ -13,9 +13,9 @@ var balanceSchema = new Schema(
   }
 )
 
-balanceSchema.methods.trade = function () {
+balanceSchema.methods.trade = function() {
   console.log(`This currency is ${this.Currency}`)
 }
 
-const Balance = mongoose.model('Balance', balanceSchema)
+const Balance = mongoose.model("Balance", balanceSchema)
 module.exports = Balance

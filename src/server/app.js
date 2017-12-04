@@ -12,10 +12,10 @@ const bodyParser = require("body-parser")
 const app = express()
 const cors = require("cors")
 
-const bittrex = require('node-bittrex-api');
+const bittrex = require("node-bittrex-api")
 
-const Strategy = require('./models/strategy')
-const Balance = require('./models/balance')
+const Strategy = require("./models/strategy")
+const Balance = require("./models/balance")
 
 let corsOptions = {
   credentials: true,
@@ -77,6 +77,7 @@ app.get("/accountSummary", (req, res) => {
       return console.error(err)
     }
     res.json(data)
+    data.result.forEach(bal => Balance.create(bal))
   })
 })
 
