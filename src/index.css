@@ -1,3 +1,9 @@
+select {
+  display: inline;
+  height: auto;
+  width: 8%;
+}
+
 .navigation-bar {
   border: 1px solid black;
   position: absolute;

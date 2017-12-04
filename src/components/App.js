@@ -14,6 +14,7 @@ const App = () => (
 
     <main>
       <Route exact path="/" component={Home} />
+      <Route exact path="/tradehistory" component={TradeHistory} />
     </main>
   </div>
 )
