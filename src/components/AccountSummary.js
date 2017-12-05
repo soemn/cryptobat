@@ -9,32 +9,40 @@ class AccountSummary extends Component {
     this.props.getBalance()
   }
 
+  // method to display filtered currency balances
+  // argument from navBar currency state
+  showCurrency(ticker) {
+    let allBalances = this.props.allBalances
+    const currencyPair1 = this.props.currency1
+    for (var i = 0; i < allBalances.length; i++) {
+      if (allBalances[i].Currency == ticker) {
+        return (
+          <div>
+            <p>Currency: {allBalances[i].Currency}</p>
+            <p>Balance: {allBalances[i].Balance}</p>
+            <p>Available: {allBalances[i].Available}</p>
+            <p>Pending: {allBalances[i].Pending}</p>
+          </div>
+        )
+      }
+    }
+  }
+
   render() {
     return (
       <div>
         <h5>Account Summary</h5>
-        <p>Currency: {this.props.currency1}</p>
-        <p>Balance: {this.props.balance1}</p>
-        <p>Available: {this.props.available1}</p>
-        <p>Pending: {this.props.pending1}</p>
-        <p>Currency: {this.props.currency2}</p>
-        <p>Balance: {this.props.balance2}</p>
-        <p>Available: {this.props.available2}</p>
-        <p>Pending: {this.props.pending2}</p>
+        {this.showCurrency(this.props.currency1)}
+        {this.showCurrency(this.props.currency2)}
       </div>
     )
   }
 }
 
 const mapStateToProps = state => ({
-  currency1: state.accountSummary.currency1,
-  balance1: state.accountSummary.balance1,
-  available1: state.accountSummary.available1,
-  pending1: state.accountSummary.pending1,
-  currency2: state.accountSummary.currency2,
-  balance2: state.accountSummary.balance2,
-  available2: state.accountSummary.available2,
-  pending2: state.accountSummary.pending2
+  currency1: state.navBar.currency1,
+  currency2: state.navBar.currency2,
+  allBalances: state.accountSummary.allBalances
 })
 
 const mapDispatchToProps = dispatch =>
@@ -47,4 +55,3 @@ const mapDispatchToProps = dispatch =>
   )
 
 export default connect(mapStateToProps, mapDispatchToProps)(AccountSummary)
-// export default AccountSummary
