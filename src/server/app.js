@@ -18,6 +18,7 @@ const bittrex = require("node-bittrex-api")
 const Strategy = require("./models/strategy")
 const Balance = require("./models/balance")
 const trader = require("./trader/trader")
+const { getNews } = require("./news")
 
 let corsOptions = {
   credentials: true,
@@ -98,13 +99,26 @@ app.get("/cryptoPanic/:token", (req, res) => {
   })
 })
 
+app.get("/cryptoPanic", (req, res) => {
+  Promise.all([getNews("BTC"), getNews("ETH"), getNews("OMG")]).then(
+    results => {
+      let combinedResults = {}
+      let tokens = ["BTC", "ETH", "OMG"]
+      results.forEach((result, index) => {
+        combinedResults[tokens[index]] = result
+      })
+      res.json(combinedResults)
+    }
+  )
+})
+
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`)
 })
 
 // =================== trader function ===================
 
-const autoTrade = schedule.scheduleJob("*/5 * * * * *", trader)
+// const autoTrade = schedule.scheduleJob("*/5 * * * * *", trader)
 
 // =================== end of trader function ===================
 
@@ -112,7 +126,8 @@ const autoTrade = schedule.scheduleJob("*/5 * * * * *", trader)
 // Strategy.create(
 //   {
 //     MarketName: "BTC-OMG",
-//     conditions: [{ Type: "supportLine", Value: 0.00001, Active: true }],
+//     Active: true,
+//     conditions: [{ Type: "supportLine", Value: 0.00001 }],
 //     executions: [
 //       {
 //         TradeType: "tradebuy",

@@ -14,13 +14,13 @@ var executionSchema = new Schema({
 
 var conditionSchema = new Schema({
   Type: String, // supportLine, resistanceLine
-  Value: Number,
-  Active: Boolean
+  Value: Number
 })
 
 var strategySchema = new Schema(
   {
     MarketName: String, // BTC-ETH, BTC-OMG, ETH-OMG
+    Active: Boolean,
     conditions: [conditionSchema],
     executions: [executionSchema]
   },

@@ -16,7 +16,9 @@ const trader = () => {
 
   Strategy.find({}, (err, res) => {
     res.forEach(strategy => {
-      console.log(strategy)
+      if (strategy.Active === true) {
+        checkConditions(strategy.conditions)
+      }
     })
   })
 
@@ -46,6 +48,13 @@ const trader = () => {
   // compare with all conditions in database
   // check balance
   // if conditions meet data-response, then execute trade
+}
+
+const checkConditions = conditions => {
+  console.log("checking conditions")
+  conditions.forEach(condition => {
+    console.log(condition)
+  })
 }
 
 module.exports = trader
