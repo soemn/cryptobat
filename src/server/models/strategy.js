@@ -14,7 +14,8 @@ var executionSchema = new Schema({
 
 var conditionSchema = new Schema({
   Type: String, // supportLine, resistanceLine
-  Value: Number
+  Value: Number,
+  Active: Boolean
 })
 
 var strategySchema = new Schema(
