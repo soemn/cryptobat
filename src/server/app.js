@@ -104,15 +104,28 @@ app.listen(port, () => {
 
 // =================== trader function ===================
 
-// const autoTrade = schedule.scheduleJob("*/5 * * * * *", trader)
+// const autoTrade = schedule.scheduleJob("*/2 * * * * *", trader)
 
 // =================== end of trader function ===================
 
 // test create a Strategy
-// Strategy.create({ TradeType: "tradesell" }, function(err, strat) {
-//   if (err) {
-//     console.log(err)
-//     return
+// Strategy.create(
+//   {
+//     MarketName: "BTC-OMG",
+//     conditions: [
+//       { Type: "resistanceLine", Value: 0.0002 },
+//       { Type: "supportLine", Value: 0.0002 }
+//     ],
+//     executions: [
+//       { TradeType: "tradesell", Quantity: 0.0003 },
+//       { TradeType: "tradebuy", Quantity: 0.0004 }
+//     ]
+//   },
+//   function(err, strat) {
+//     if (err) {
+//       console.log(err)
+//       return
+//     }
+//     console.log(strat.trade())
 //   }
-//   console.log(strat.trade())
-// })
+// )
