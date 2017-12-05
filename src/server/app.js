@@ -103,6 +103,7 @@ app.listen(port, () => {
 })
 
 // =================== trader function ===================
+
 const autoTrade = schedule.scheduleJob("*/5 * * * * *", trader)
 
 // =================== end of trader function ===================
@@ -111,13 +112,13 @@ const autoTrade = schedule.scheduleJob("*/5 * * * * *", trader)
 // Strategy.create(
 //   {
 //     MarketName: "BTC-OMG",
-//     conditions: [
-//       { Type: "resistanceLine", Value: 0.0002 },
-//       { Type: "supportLine", Value: 0.0002 }
-//     ],
+//     conditions: [{ Type: "supportLine", Value: 0.00001, Active: true }],
 //     executions: [
-//       { TradeType: "tradesell", Quantity: 0.0003 },
-//       { TradeType: "tradebuy", Quantity: 0.0004 }
+//       {
+//         TradeType: "tradebuy",
+//         Quantity: 3,
+//         Rate: 0.00001
+//       }
 //     ]
 //   },
 //   function(err, strat) {

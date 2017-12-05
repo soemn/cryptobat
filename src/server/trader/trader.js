@@ -1,5 +1,10 @@
 const Strategy = require("../models/strategy")
 const bittrex = require("node-bittrex-api")
+const {
+  getAllPendingBuyOrders,
+  getAllPendingSellOrders,
+  getBalance
+} = require("./accountScripts")
 
 bittrex.options({
   apikey: process.env.BITTREX_KEY,
@@ -9,57 +14,38 @@ bittrex.options({
 const trader = () => {
   console.log("============== trading now ==============")
 
-  // getBalance("OMG").then(result => {
-  //   console.log(result)
-  // })
-
-  getAllPendingBuyOrders("BTC-OMG").then(result => {
-    console.log(result)
+  Strategy.find({}, (err, res) => {
+    res.forEach(strategy => {
+      console.log(strategy)
+    })
   })
+
+  // getBalance("OMG")
+  //   .then(result => {
+  //     console.log("You have :" + result + " OMG")
+  //   })
+  //   .then(
+  //     getBalance("BTC").then(result => {
+  //       console.log("You have :" + result + " BTC")
+  //     })
+  //   )
+  //   .then(
+  //     getAllPendingBuyOrders("BTC-OMG").then(result => {
+  //       console.log("pending buy orders for BTC-OMG:", result)
+  //     })
+  //   )
+  //   .then(
+  //     getAllPendingSellOrders("BTC-OMG").then(result => {
+  //       console.log("pending sell orders for BTC-OMG:", result)
+  //     })
+  //   )
 
   //check current balance
 
   // get data from bittrex
   // compare with all conditions in database
   // check balance
-  // if conditions meet data-responce, then execute trade
-}
-
-const getAllPendingBuyOrders = tokenPair => {
-  let customRequestPath =
-    "https://bittrex.com/api/v1.1/market/getopenorders?apikey=API_KEY&market=" +
-    tokenPair
-
-  return new Promise((resolve, reject) => {
-    bittrex.sendCustomRequest(
-      customRequestPath,
-      function(data, err) {
-        if (err) {
-          reject(err)
-        } else {
-          if (data.result.length > 0) {
-            let allOrders = data.result
-            console.log(allOrders)
-          }
-          resolve(data)
-        }
-      },
-      true
-    )
-  })
-}
-
-const getBalance = token => {
-  return new Promise((resolve, reject) => {
-    bittrex.getbalance({ currency: token }, function(data, err) {
-      if (err) {
-        reject(err)
-      } else {
-        let balance = data.result.Available
-        resolve(balance)
-      }
-    })
-  })
+  // if conditions meet data-response, then execute trade
 }
 
 module.exports = trader
