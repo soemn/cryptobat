@@ -5,6 +5,19 @@ bittrex.options({
   apisecret: process.env.BITTREX_SECRET
 })
 
+const getMarketPrice = tokenPair => {
+  return new Promise((resolve, reject) => {
+    bittrex.getmarketsummary({ market: tokenPair }, function(data, err) {
+      if (err) {
+        reject(err)
+      } else {
+        let bidPrice = data.result[0].Bid
+        resolve(bidPrice)
+      }
+    })
+  })
+}
+
 const getAllPendingBuyOrders = tokenPair => {
   let customRequestPath =
     "https://bittrex.com/api/v1.1/market/getopenorders?apikey=API_KEY&market=" +
@@ -79,5 +92,6 @@ const getBalance = token => {
 module.exports = {
   getAllPendingBuyOrders,
   getAllPendingSellOrders,
-  getBalance
+  getBalance,
+  getMarketPrice
 }

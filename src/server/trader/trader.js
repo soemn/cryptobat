@@ -3,7 +3,8 @@ const bittrex = require("node-bittrex-api")
 const {
   getAllPendingBuyOrders,
   getAllPendingSellOrders,
-  getBalance
+  getBalance,
+  getMarketPrice
 } = require("./accountScripts")
 
 bittrex.options({
@@ -16,31 +17,12 @@ const trader = () => {
 
   Strategy.find({}, (err, res) => {
     res.forEach(strategy => {
+      // console.log(strategy)
       if (strategy.Active === true) {
-        checkConditions(strategy.conditions)
+        checkConditions(strategy.conditions, strategy.MarketName)
       }
     })
   })
-
-  // getBalance("OMG")
-  //   .then(result => {
-  //     console.log("You have :" + result + " OMG")
-  //   })
-  //   .then(
-  //     getBalance("BTC").then(result => {
-  //       console.log("You have :" + result + " BTC")
-  //     })
-  //   )
-  //   .then(
-  //     getAllPendingBuyOrders("BTC-OMG").then(result => {
-  //       console.log("pending buy orders for BTC-OMG:", result)
-  //     })
-  //   )
-  //   .then(
-  //     getAllPendingSellOrders("BTC-OMG").then(result => {
-  //       console.log("pending sell orders for BTC-OMG:", result)
-  //     })
-  //   )
 
   //check current balance
 
@@ -50,11 +32,25 @@ const trader = () => {
   // if conditions meet data-response, then execute trade
 }
 
-const checkConditions = conditions => {
+const checkConditions = (conditions, tokenPair) => {
   console.log("checking conditions")
+  let conditionsAllMet = false
   conditions.forEach(condition => {
-    console.log(condition)
+    if (condition.Type === "resistanceLine") {
+      getMarketPrice(tokenPair).then(currentBidPrice => {
+        console.log(
+          "Placing a sell order for " + tokenPair + " above " + currentBidPrice
+        )
+      })
+    } else if (condition.Type === "supportLine") {
+      getMarketPrice(tokenPair).then(currentBidPrice => {
+        console.log(
+          "Placing a buy order for " + tokenPair + " below " + currentBidPrice
+        )
+      })
+    }
   })
 }
 
+module.exports = trader
 module.exports = trader
