@@ -27,7 +27,6 @@ class News extends Component {
 }
 
 const mapStateToProps = state => ({
-  title: state.news.title,
   headlines: state.news.headlines
 })
 

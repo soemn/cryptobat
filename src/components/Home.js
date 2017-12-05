@@ -1,12 +1,14 @@
-import React from "react"
-import { connect } from "react-redux"
-import { Route } from "react-router-dom"
-import AccountSummary from "./AccountSummary"
-import Chart from "./Chart"
-import Orders from "./Orders"
-import News from "./News"
-import AltData from "./AltData"
-import TradingStrategy from "./TradingStrategy"
+import React from 'react'
+import { connect } from 'react-redux'
+import { Route } from 'react-router-dom'
+import AccountSummary from './AccountSummary'
+import Chart from './Chart'
+import Orders from './Orders'
+import News from './News'
+import AltData from './AltData'
+import TradingStrategy from './TradingStrategy'
+
+import './Home.css'
 
 const Home = props => (
   <div className="container">
@@ -15,7 +17,7 @@ const Home = props => (
         <Route exact path="/" component={AccountSummary} />
       </div>
       <div className="top-chart">
-        <Route exact path="/" component={Chart} />
+        <Chart />
       </div>
       <div className="middle-orders">
         <Route exact path="/" component={Orders} />

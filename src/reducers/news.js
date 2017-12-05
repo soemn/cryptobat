@@ -24,7 +24,7 @@ export const loadNews = (state = initialState) => dispatch => {
     .get('http://localhost:9000/cryptoPanic/' + state.token)
     .then(response => {
       let headlines = []
-      let size = 5
+      let size = 4
       headlines = response.data.results.slice(0, size).map(header => {
         return header
       })
