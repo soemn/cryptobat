@@ -3,41 +3,35 @@ import axios from 'axios'
 export const LOADNEWS = 'reducers/LOADNEWS'
 
 const initialState = {
-  title: 'test title',
-  token: 'btc'
+  token: 'btc',
+  headlines: [{ title: '', url: '' }]
 }
 
 export default (state = initialState, action) => {
   switch (action.type) {
     case LOADNEWS:
-      axios
-        .get('http://localhost:9000/cryptoPanic/' + state.token)
-        // .then(response => {
-        //   console.log(response)
-        // })
-        .then(response => {
-          // let headline = response.data.map(header => {
-          let headline = response.data.results.map(header => {
-            console.log(header.title)
-          })
-          //   console.log(headline)
-        })
       return {
         ...state,
-        title: state.title
+        headlines: action.headlines
       }
-      // })
-      // })
-      break
     default:
       return state
   }
 }
 
-export const loadNews = () => {
-  return dispatch => {
-    dispatch({
-      type: LOADNEWS
+export const loadNews = (state = initialState) => dispatch => {
+  axios
+    .get('http://localhost:9000/cryptoPanic/' + state.token)
+    .then(response => {
+      let headlines = []
+      let size = 5
+      headlines = response.data.results.slice(0, size).map(header => {
+        return header
+      })
+
+      return dispatch({
+        type: LOADNEWS,
+        headlines: headlines
+      })
     })
-  }
 }
