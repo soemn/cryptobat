@@ -7,21 +7,36 @@ import { getOpenOrders } from "../reducers/openOrders"
 class Orders extends Component {
   componentWillMount() {
     this.props.getOpenOrders()
-    // console.log("getOpenOrders called")
+  }
+
+  showOpenOrders() {
+    let allOpenOrders = this.props.allOpenOrders
+    let orderDetails = allOpenOrders.map(order => {
+      return (
+        <div>
+          <p>Exchange:{order.Exchange}</p>
+          <p>Opened: {order.Opened}</p>
+          <p>Order Type: {order.OrderType}</p>
+          <p>Limit: {order.Limit}</p>
+          <p>Quantity: {order.Quantity}</p>
+          <p>Quantity Remaining: {order.QuantityRemaining}</p>
+        </div>
+      )
+    })
+    return <div>{orderDetails}</div>
   }
 
   render() {
     return (
       <div>
         <h5>Open Orders</h5>
+        {this.showOpenOrders()}
       </div>
     )
   }
 }
 
 const mapStateToProps = state => ({
-  currency1: state.navBar.currency1,
-  currency2: state.navBar.currency2,
   allOpenOrders: state.openOrders.allOpenOrders
 })
 

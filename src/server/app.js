@@ -102,8 +102,7 @@ app.get("/cryptoPanic/:token", (req, res) => {
 app.get("/openorders", (req, res) => {
   let tokenPair = "BTC-OMG"
   let customRequestPath =
-    "https://bittrex.com/api/v1.1/market/getopenorders?apikey=API_KEY&market=" +
-    tokenPair
+    "https://bittrex.com/api/v1.1/market/getopenorders?apikey=API_KEY"
   console.log("GET Open Orders called")
   return new Promise((resolve, reject) => {
     bittrex.sendCustomRequest(

@@ -1,8 +1,8 @@
-import React, { Component } from 'react'
-import { connect } from 'react-redux'
-import { push } from 'react-router-redux'
-import { bindActionCreators } from 'redux'
-import { getBalance } from '../reducers/accountSummary'
+import React, { Component } from "react"
+import { connect } from "react-redux"
+import { push } from "react-router-redux"
+import { bindActionCreators } from "redux"
+import { getBalance } from "../reducers/accountSummary"
 
 class AccountSummary extends Component {
   componentWillMount() {
@@ -14,7 +14,7 @@ class AccountSummary extends Component {
   showCurrency(ticker) {
     let allBalances = this.props.allBalances
     for (var i = 0; i < allBalances.length; i++) {
-      if (allBalances[i].Currency == ticker) {
+      if (allBalances[i].Currency === ticker) {
         return (
           <div>
             <p>Currency:{allBalances[i].Currency}</p>
@@ -48,7 +48,7 @@ const mapDispatchToProps = dispatch =>
   bindActionCreators(
     {
       getBalance,
-      changePage: () => push('/AccountSummary')
+      changePage: () => push("/AccountSummary")
     },
     dispatch
   )

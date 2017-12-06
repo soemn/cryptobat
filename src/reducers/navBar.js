@@ -36,21 +36,17 @@ export function chooseCurrPair() {
   var selectedPairIndex = document.getElementById("selectBox").selectedIndex
   switch (selectedPairIndex) {
     case 0:
-      console.log("0")
       return {
         type: ETH_OMG
       }
     case 1:
-      console.log("1")
       return {
         type: BTC_ETH
       }
     case 2:
-      console.log("2")
       return {
         type: BTC_OMG
       }
     default:
-      console.log("default")
   }
 }
