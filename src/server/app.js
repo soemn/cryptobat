@@ -133,6 +133,28 @@ app.get("/cryptoPanic", (req, res) => {
   )
 })
 
+app.post("/tradingstrategy", (req, res) => {
+  const formData = req.body
+  let newStrategy = new Strategy({
+    MarketName: formData.MarketName,
+    Active: formData.Active,
+    conditions: [
+      {
+        Type: formData.Type,
+        Value: formData.Value
+      }
+    ],
+    executions: [
+      {
+        TradeType: formData.TradeType,
+        Quantity: formData.Quantity,
+        Rate: formData.Rate
+      }
+    ]
+  })
+  newStrategy.save()
+})
+
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`)
 })
