@@ -12,6 +12,28 @@ bittrex.options({
   apisecret: process.env.BITTREX_SECRET
 })
 
+const checkEachCondition = (condition, tokenPair) => {
+  if (condition.Type === "resistanceLine") {
+    return new Promise((resolve, reject) => {
+      getMarketPrice(tokenPair).then(currentBidPrice => {
+        if (currentBidPrice < condition.Value) {
+          console.log("condition met for resistanceLine")
+          resolve(true)
+        } else resolve(false)
+      })
+    })
+  } else if (condition.Type === "supportLine") {
+    return new Promise((resolve, reject) => {
+      getMarketPrice(tokenPair).then(currentBidPrice => {
+        if (currentBidPrice > condition.Value) {
+          console.log("condition met for supportLine")
+          resolve(true)
+        } else resolve(false)
+      })
+    })
+  }
+}
+
 const trader = () => {
   console.log("============== trading now ==============")
 
@@ -35,22 +57,16 @@ const trader = () => {
 const checkConditions = (conditions, tokenPair) => {
   console.log("checking conditions")
   let conditionsAllMet = false
+
+  let conditionPromises = []
+
   conditions.forEach(condition => {
-    if (condition.Type === "resistanceLine") {
-      getMarketPrice(tokenPair).then(currentBidPrice => {
-        console.log(
-          "Placing a sell order for " + tokenPair + " above " + currentBidPrice
-        )
-      })
-    } else if (condition.Type === "supportLine") {
-      getMarketPrice(tokenPair).then(currentBidPrice => {
-        console.log(
-          "Placing a buy order for " + tokenPair + " below " + currentBidPrice
-        )
-      })
-    }
+    conditionPromises.push(checkEachCondition(condition, tokenPair))
+  })
+
+  Promise.all(conditionPromises).then(response => {
+    console.log(response)
   })
 }
 
-module.exports = trader
 module.exports = trader
