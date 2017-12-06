@@ -13,7 +13,6 @@ class AccountSummary extends Component {
   // argument from navBar currency state
   showCurrency(ticker) {
     let allBalances = this.props.allBalances
-    const currencyPair1 = this.props.currency1
     for (var i = 0; i < allBalances.length; i++) {
       if (allBalances[i].Currency == ticker) {
         return (

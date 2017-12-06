@@ -44,19 +44,16 @@ export function chooseCurrPair() {
       return {
         type: ETH_OMG
       }
-      break
     case 1:
       console.log("1")
       return {
         type: BTC_ETH
       }
-      break
     case 2:
       console.log("2")
       return {
         type: BTC_OMG
       }
-      break
     default:
       console.log("default")
   }

@@ -4,6 +4,10 @@ select {
   width: 8%;
 }
 
+iframe {
+  position: absolute;
+  top: 30%;
+}
 .navigation-bar {
   border: 1px solid black;
   position: absolute;
