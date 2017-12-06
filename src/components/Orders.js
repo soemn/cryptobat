@@ -11,9 +11,9 @@ class Orders extends Component {
 
   showOpenOrders() {
     let allOpenOrders = this.props.allOpenOrders
-    let orderDetails = allOpenOrders.map(order => {
+    let orderDetails = allOpenOrders.map((order, key) => {
       return (
-        <div>
+        <div key={key}>
           <p>Exchange:{order.Exchange}</p>
           <p>Opened: {order.Opened}</p>
           <p>Order Type: {order.OrderType}</p>
