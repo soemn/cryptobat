@@ -1,10 +1,10 @@
-require("dotenv").config({ silent: true })
+const path = require("path")
+require("dotenv").config({ path: path.join(__dirname, "../../.env") })
 
 const port = 9000
 const dbUrl = "mongodb://127.0.0.1:27017/cryptobat"
 
 const express = require("express")
-const path = require("path")
 const request = require("request")
 const mongoose = require("mongoose")
 const methodOverride = require("method-override")
