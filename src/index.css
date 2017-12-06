@@ -6,8 +6,11 @@ select {
 
 iframe {
   position: absolute;
-  top: 20%;
+  top: 27%;
+  margin: 0;
+  border: 0;
 }
+
 .navigation-bar {
   border: 1px solid black;
   position: absolute;

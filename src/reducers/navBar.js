@@ -10,28 +10,24 @@ const initialState = {
 export default (state = initialState, action) => {
   switch (action.type) {
     case ETH_OMG:
-      console.log("ETH_OMG called")
       return {
         ...state,
         currency1: "ETH",
         currency2: "OMG"
       }
     case BTC_ETH:
-      console.log("BTC_ETH called")
       return {
         ...state,
         currency1: "BTC",
         currency2: "ETH"
       }
     case BTC_OMG:
-      console.log("BTC_OMG called")
       return {
         ...state,
         currency1: "BTC",
         currency2: "OMG"
       }
     default:
-      console.log("Default called!")
       return state
   }
 }

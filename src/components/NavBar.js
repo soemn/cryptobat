@@ -18,7 +18,7 @@ const NavBar = props => (
         <option value="BTC-ETH">BTC-ETH</option>
         <option value="BTC-OMG">BTC-OMG</option>
       </select>
-      <Link to="/">Trade View</Link> |
+      | <Link to="/">Trade View</Link> |
       <Link to="/tradehistory"> Trade History</Link>
     </header>
   </div>
