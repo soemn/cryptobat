@@ -5,10 +5,13 @@ import { bindActionCreators } from "redux"
 
 class Chart extends Component {
   componentDidMount() {
+    let width = document.getElementById("top-chart").offsetWidth
+    let height = document.getElementById("top-chart").offsetHeight
+
     const tradingWidget = document.createElement("script")
     tradingWidget.innerHTML = `new TradingView.widget({
-      width: 765,
-      height: 370,
+      width: ${width},
+      height: ${height},
       id: 'testing',
       symbol: 'BITTREX:ETHBTC',
       interval: 'D',

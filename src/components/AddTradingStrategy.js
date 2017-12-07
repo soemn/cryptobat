@@ -21,15 +21,6 @@ class AddTradingStrategy extends Component {
             <option value="BTC-OMG">BTC-OMG</option>
           </select>
           <form>
-            Select currency pair:{" "}
-            <select classname="strategyfield">
-              <option selected hidden>
-                Select
-              </option>
-              <option value="ETH-OMG">ETH-OMG</option>
-              <option value="BTC-ETH">BTC-ETH</option>
-              <option value="BTC-OMG">BTC-OMG</option>
-            </select>
             Execution price:{" "}
             <input
               className="strategyfield"
@@ -56,8 +47,8 @@ class AddTradingStrategy extends Component {
               type="number"
               placeholder="Quantity"
             />
-            <button onClick={this.props.createStrategy}>ADD</button>
           </form>
+          <button onClick={this.props.createStrategy}>ADD</button>
         </div>
       </div>
     )

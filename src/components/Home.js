@@ -34,16 +34,17 @@ const Home = props => (
       {/* <div className="bottom-right-alt-data">
         <Route exact path="/" component={AltData} />
       </div> */}
-
-      <div className="col s12" id="bottom-trading-strategy">
+    </div>
+    <div className="col s12">
+      <div className="bottom-trading-strategy">
         <Route exact path="/" component={AddTradingStrategy} />
       </div>
     </div>
-    <div className="bottom-trading-strategy">
-      <Route exact path="/" component={AddTradingStrategy} />
-    </div>
-    <div className="bottom-show-trading-strategy">
-      <Route exact path="/" component={ShowTradingStrategies} />
+
+    <div className="col s12">
+      <div className="bottom-show-trading-strategy">
+        <Route exact path="/" component={ShowTradingStrategies} />
+      </div>
     </div>
   </div>
 )
