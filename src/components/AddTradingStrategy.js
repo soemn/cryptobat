@@ -14,7 +14,7 @@ class AddTradingStrategy extends Component {
         <h5>Add trading strategy</h5>
         <div className="tradingrow">
           Select currency pair:{' '}
-          <select classname="strategyfield">
+          <select className="strategyfield">
             <option selected hidden>
               Select
             </option>
@@ -25,22 +25,21 @@ class AddTradingStrategy extends Component {
           <form>
             Execution price:{' '}
             <input
-              classname="strategyfield"
+              className="strategyfield"
               type="number"
-              value="value"
               placeholder="Price"
             />
           </form>
           Trade:
-          <select classname="strategyfield">
+          <select className="strategyfield">
             <option selected hidden>
               Select
             </option>
             <option value="tradebuy">Buy</option>
             <option value="tradesell">Sell</option>
           </select>
-          Trade type:
-          <select classname="strategyfield">
+          Strategy name:
+          <select className="strategyfield">
             <option selected hidden>
               Select
             </option>
@@ -50,9 +49,8 @@ class AddTradingStrategy extends Component {
           <form>
             Quantity to hold:{' '}
             <input
-              classname="strategyfield"
+              className="strategyfield"
               type="number"
-              value="quantity"
               placeholder="Quantity"
             />
           </form>
