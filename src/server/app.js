@@ -48,7 +48,7 @@ app.use(
 )
 
 app.use(methodOverride("_method"))
-app.use(cors(corsOptions))
+app.use(cors())
 
 app.use(express.static(path.join(__dirname, "public")))
 app.use(function(req, res, next) {
