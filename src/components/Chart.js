@@ -4,17 +4,17 @@ import { push } from "react-router-redux"
 import { bindActionCreators } from "redux"
 
 class Chart extends Component {
-  componentWillMount() {
-    const tradingWidgetInitCode = document.createElement("script")
-    tradingWidgetInitCode.src = "https://s3.tradingview.com/tv.js"
-    document.body.appendChild(tradingWidgetInitCode)
-  }
+  // componentWillMount() {
+  //   const tradingWidgetInitCode = document.createElement("script")
+  //   tradingWidgetInitCode.src = "https://s3.tradingview.com/tv.js"
+  //   document.body.appendChild(tradingWidgetInitCode)
+  // }
 
   componentDidMount() {
     const tradingWidget = document.createElement("script")
     tradingWidget.innerHTML = `new TradingView.widget({
-      width: 780,
-      height: 510,
+      width: 765,
+      height: 370,
       id: 'testing',
       symbol: 'BITTREX:ETHBTC',
       interval: 'D',

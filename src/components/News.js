@@ -1,9 +1,8 @@
-import React, { Component } from 'react'
-import { connect } from 'react-redux'
-import { push } from 'react-router-redux'
-import { bindActionCreators } from 'redux'
-import { loadNews } from '../reducers/news'
-import { chooseCurrPair } from '../reducers/navBar'
+import React, { Component } from "react"
+import { connect } from "react-redux"
+import { push } from "react-router-redux"
+import { bindActionCreators } from "redux"
+import { loadNews } from "../reducers/news"
 // import uuid from 'uuid/v4'
 
 class News extends Component {
@@ -51,7 +50,7 @@ const mapDispatchToProps = dispatch =>
   bindActionCreators(
     {
       loadNews,
-      changePage: () => push('/News')
+      changePage: () => push("/News")
     },
     dispatch
   )

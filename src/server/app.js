@@ -1,10 +1,10 @@
-require("dotenv").config({ silent: true })
+const path = require("path")
+require("dotenv").config({ path: path.join(__dirname, "../../.env") })
 
 const port = 9000
 const dbUrl = "mongodb://127.0.0.1:27017/cryptobat"
 
 const express = require("express")
-const path = require("path")
 const request = require("request")
 const mongoose = require("mongoose")
 const methodOverride = require("method-override")
@@ -96,6 +96,26 @@ app.get("/cryptoPanic/:token", (req, res) => {
       let info = JSON.parse(body)
       res.json(info)
     }
+  })
+})
+
+app.get("/openorders", (req, res) => {
+  let tokenPair = "BTC-OMG"
+  let customRequestPath =
+    "https://bittrex.com/api/v1.1/market/getopenorders?apikey=API_KEY"
+  console.log("GET Open Orders called")
+  return new Promise((resolve, reject) => {
+    bittrex.sendCustomRequest(
+      customRequestPath,
+      function(data, err) {
+        if (err) {
+          reject(err)
+        } else {
+          res.json(data)
+        }
+      },
+      true
+    )
   })
 })
 
