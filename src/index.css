@@ -23,9 +23,9 @@ iframe {
 .tradingrow {
   display: flex;
   flex-direction: row;
-  margin: 10px;
   flex: 1 1 auto;
-  justify-content: space-between;
+  margin-right: ;
+  /*justify-content: space-between;*/
 }
 
 .navigation-bar {
