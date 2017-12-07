@@ -159,7 +159,7 @@ app.post("/tradingstrategy", (req, res) => {
       {
         TradeType: formData.TradeType,
         Quantity: formData.Quantity,
-        Rate: formData.Rate
+        Rate: formData.Value
       }
     ]
   })
