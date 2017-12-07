@@ -28,12 +28,8 @@ class Orders extends Component {
   render() {
     return (
       <div>
-        <span>
-          <b>
-            <u>Open Orders</u>
-          </b>
-        </span>
-        <table className="responsive-table striped highlight">
+        <span>Open Orders</span>
+        <table className="responsive-table highlight">
           <thead>
             <tr>
               <th>Exchange</th>
