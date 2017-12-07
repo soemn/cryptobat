@@ -24,9 +24,9 @@ iframe {
   display: flex;
   flex-direction: row;
   flex: 1 1 auto;
-  margin-right: ;
-
-  /*justify-content: space-between;*/
+  margin-right: 10px;
+  height: 30px;
+  justify-content: space-between;
 }
 
 .navigation-bar {

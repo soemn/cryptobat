@@ -21,14 +21,6 @@ export default (state = initialState, action) => {
 export const loadNews = (state = initialState) => dispatch => {
   axios.get('http://localhost:9000/cryptoPanic/').then(response => {
     let allResponses = response
-    // let allResponses = response.data.ETH.results
-    // console.log(allResponses)
-    // let headlines = []
-    // let size = 4
-    // console.log(response)
-    // headlines = response.data.data.ETH.results.slice(0, size).map(header => {
-    //   return header
-    // })
 
     return dispatch({
       type: LOADNEWS,
