@@ -3,7 +3,6 @@ import { connect } from "react-redux"
 import { push } from "react-router-redux"
 import { bindActionCreators } from "redux"
 import { loadNews } from "../reducers/news"
-// import uuid from 'uuid/v4'
 
 class News extends Component {
   componentDidMount() {

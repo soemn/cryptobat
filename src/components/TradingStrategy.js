@@ -1,15 +1,12 @@
-import React, { Component } from 'react'
-import { connect } from 'react-redux'
-import { push } from 'react-router-redux'
-import { bindActionCreators } from 'redux'
+import React, { Component } from "react"
+import { connect } from "react-redux"
+import { push } from "react-router-redux"
+import { bindActionCreators } from "redux"
 
-import { createStrategy, deleteStrategy } from '../reducers/tradingStrategy'
+import { createStrategy, deleteStrategy } from "../reducers/tradingStrategy"
 
 class TradingStrategy extends Component {
-  componentDidMount() {
-    // this.props.createStrategy()
-    // this.props.deleteStrategy()
-  }
+  componentDidMount() {}
 
   render() {
     return (
@@ -43,7 +40,7 @@ const mapDispatchToProps = dispatch =>
     {
       createStrategy,
       deleteStrategy,
-      changePage: () => push('/TradingStrategy')
+      changePage: () => push("/TradingStrategy")
     },
     dispatch
   )

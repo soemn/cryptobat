@@ -11,26 +11,37 @@ class Orders extends Component {
 
   showOpenOrders() {
     let allOpenOrders = this.props.allOpenOrders
-    let orderDetails = allOpenOrders.map((order, key) => {
+    return allOpenOrders.map((order, key) => {
       return (
-        <div key={key}>
-          <p>Exchange:{order.Exchange}</p>
-          <p>Opened: {order.Opened}</p>
-          <p>Order Type: {order.OrderType}</p>
-          <p>Limit: {order.Limit}</p>
-          <p>Quantity: {order.Quantity}</p>
-          <p>Quantity Remaining: {order.QuantityRemaining}</p>
-        </div>
+        <tr key={key}>
+          <td>{order.Exchange}</td>
+          <td>{order.Opened}</td>
+          <td>{order.OrderType}</td>
+          <td>{order.Limit}</td>
+          <td>{order.Quantity}</td>
+          <td>{order.QuantityRemaining}</td>
+        </tr>
       )
     })
-    return <div>{orderDetails}</div>
   }
 
   render() {
     return (
       <div>
-        <h5>Open Orders</h5>
-        {this.showOpenOrders()}
+        <span>Open Orders</span>
+        <table className="responsive-table striped highlight">
+          <thead>
+            <tr>
+              <th>Exchange</th>
+              <th>Opened</th>
+              <th>Order Type</th>
+              <th>Limit</th>
+              <th>Quantity</th>
+              <th>Quantity Remaining</th>
+            </tr>
+          </thead>
+          <tbody>{this.showOpenOrders()}</tbody>
+        </table>
       </div>
     )
   }

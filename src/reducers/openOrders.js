@@ -20,9 +20,7 @@ export default (state = initialState, action) => {
 
 export const getOpenOrders = () => dispatch => {
   axios.get("http://localhost:9000/openorders").then(response => {
-    console.log(response)
     let allOpenOrders = response.data.result
-    console.log(allOpenOrders)
     return dispatch({
       type: GETOPENORDERS,
       payload: allOpenOrders

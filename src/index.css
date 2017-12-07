@@ -62,6 +62,7 @@ iframe {
   display: block;
   width: 780px;
   height: 130px;
+  overflow: scroll;
 }
 
 .top-right-news {
@@ -72,6 +73,7 @@ iframe {
   display: block;
   width: 190px;
   height: 500px;
+  overflow: scroll;
 }
 
 .bottom-right-alt-data {
