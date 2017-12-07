@@ -1,5 +1,7 @@
-export const CREATE_STRATEGY = 'tradingStrategy/CREATE_STRATEGY'
-export const DELETE_STRATEGY = 'tradingStrategy/DELETE_STRATEGY'
+import axios from "axios"
+
+export const CREATE_STRATEGY = "tradingStrategy/CREATE_STRATEGY"
+export const DELETE_STRATEGY = "tradingStrategy/DELETE_STRATEGY"
 
 const initialState = {
   strategies: 0
@@ -8,7 +10,7 @@ const initialState = {
 export default (state = initialState, action) => {
   switch (action.type) {
     case CREATE_STRATEGY:
-      alert('CREATE_STRAT called')
+      alert("CREATE_STRAT called")
       // document.getElementsByClassName('strategySelect').
       return {
         ...state,
@@ -25,6 +27,22 @@ export default (state = initialState, action) => {
 }
 
 export const createStrategy = () => dispatch => {
+  axios
+    .post("http://localhost:9000/tradingstrategy", {
+      MarketName: "TEST marketname",
+      Active: false,
+      Type: "TEST type",
+      Value: 456,
+      TradeType: "TEST TradeType",
+      Quantity: 9999,
+      Rate: 123
+    })
+    .then(function(response) {
+      // console.log(response)
+    })
+    .catch(function(error) {
+      // console.log(error)
+    })
   return dispatch({
     type: CREATE_STRATEGY
     // strategy: strategy

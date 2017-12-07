@@ -145,6 +145,7 @@ app.get("/cryptoPanic", (req, res) => {
 })
 
 app.post("/tradingstrategy", (req, res) => {
+  console.log(req.body)
   const formData = req.body
   let newStrategy = new Strategy({
     MarketName: formData.MarketName,

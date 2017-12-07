@@ -15,20 +15,20 @@ bittrex.options({
 const trader = () => {
   console.log("============== trading now ==============")
 
-  Strategy.find({}, (err, res) => {
-    res.forEach(strategy => {
-      // console.log(strategy)
-      if (strategy.Active === true) {
-        checkConditions(strategy.conditions, strategy.MarketName).then(
-          result => {
-            if (result === true) {
-              console.log(strategy.executions)
-            }
-          }
-        )
-      }
-    })
-  })
+  // Strategy.find({}, (err, res) => {
+  //   res.forEach(strategy => {
+  //     // console.log(strategy)
+  //     if (strategy.Active === true) {
+  //       checkConditions(strategy.conditions, strategy.MarketName).then(
+  //         result => {
+  //           if (result === true) {
+  //             console.log(strategy.executions)
+  //           }
+  //         }
+  //       )
+  //     }
+  //   })
+  // })
 
   //check current balance
 
