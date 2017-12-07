@@ -173,6 +173,18 @@ app.get("/showAllStrategies", (req, res) => {
   })
 })
 
+app.post("/deleteStrategy", (req, res) => {
+  console.log("post /delete called")
+  Strategy.findByIdAndRemove(req.body, function(err) {
+    if (err) res.send(err)
+    else {
+      Strategy.find({}, (err, response) => {
+        res.json(response)
+      })
+    }
+  })
+})
+
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`)
 })

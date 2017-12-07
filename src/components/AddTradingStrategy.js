@@ -56,9 +56,8 @@ class AddTradingStrategy extends Component {
 }
 
 const mapStateToProps = state => ({
-  currency1: state.navBar.currency1,
-  currency2: state.navBar.currency2,
-  allBalances: state.accountSummary.allBalances
+  allBalances: state.accountSummary.allBalances,
+  allStrategiesFromDB: state.showTradingStrategies.allStrategies
 })
 
 const mapDispatchToProps = dispatch =>
