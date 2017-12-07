@@ -11,7 +11,7 @@ class AddTradingStrategy extends Component {
   render() {
     return (
       <div className="TradingStrategy">
-        <h5>Add trading strategy</h5>
+        <h5>Add New Strategy</h5>
         <div className="tradingrow">
           Select currency pair:{" "}
           <select defaultValue="Select" className="strategyfield">

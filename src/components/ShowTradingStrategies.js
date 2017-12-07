@@ -11,7 +11,6 @@ class ShowTradingStrategies extends Component {
 
   showStrategies() {
     let allStrategies = this.props.allStrategiesFromDB
-    console.log(allStrategies)
     return allStrategies.map((strategy, key) => {
       return (
         <tr key={key}>
@@ -28,7 +27,7 @@ class ShowTradingStrategies extends Component {
   render() {
     return (
       <div>
-        <h5>Show Trading Strategies</h5>
+        <h5>Currently Running Strategies</h5>
         <table>
           <thead>
             <tr>

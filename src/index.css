@@ -121,15 +121,16 @@ button {
   left: 5%;
   display: block;
   width: 90%;
-  height: 30%;
+  height: 20%;
 }
 
 .bottom-show-trading-strategy {
   /*border: 1px solid black;*/
   position: absolute;
-  top: 125%;
+  top: 115%;
   left: 5%;
   display: block;
   width: 90%;
-  height: 30%;
+  height: 40%;
+  overflow: scroll;
 }
