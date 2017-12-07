@@ -6,7 +6,7 @@ import Chart from './Chart'
 import Orders from './Orders'
 import News from './News'
 import AltData from './AltData'
-import TradingStrategy from './TradingStrategy'
+import AddTradingStrategy from './AddTradingStrategy'
 
 import './Home.css'
 
@@ -30,7 +30,7 @@ const Home = props => (
       </div>
     </div>
     <div className="bottom-trading-strategy">
-      <Route exact path="/" component={TradingStrategy} />
+      <Route exact path="/" component={AddTradingStrategy} />
     </div>
   </div>
 )

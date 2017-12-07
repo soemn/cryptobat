@@ -3,9 +3,9 @@ import { connect } from 'react-redux'
 import { push } from 'react-router-redux'
 import { bindActionCreators } from 'redux'
 
-import { createStrategy, deleteStrategy } from '../reducers/tradingStrategy'
+import { createStrategy, deleteStrategy } from '../reducers/addtradingStrategy'
 
-class TradingStrategy extends Component {
+class AddTradingStrategy extends Component {
   componentDidMount() {}
 
   render() {
@@ -52,7 +52,7 @@ class TradingStrategy extends Component {
             <option value="True">True</option>
             <option value="False">False</option>
           </select>
-          <button onClick={this.props.createStrategy}>Submit</button>
+          <button onClick={this.props.createStrategy}>ADD</button>
         </div>
       </div>
     )
@@ -70,9 +70,9 @@ const mapDispatchToProps = dispatch =>
     {
       createStrategy,
       deleteStrategy,
-      changePage: () => push('/TradingStrategy')
+      changePage: () => push('/AddTradingStrategy')
     },
     dispatch
   )
 
-export default connect(mapStateToProps, mapDispatchToProps)(TradingStrategy)
+export default connect(mapStateToProps, mapDispatchToProps)(AddTradingStrategy)
