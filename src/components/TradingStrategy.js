@@ -11,37 +11,47 @@ class TradingStrategy extends Component {
   render() {
     return (
       <div className="TradingStrategy">
-        <h5>Trading Strategy</h5>
+        <h5>Add trading strategy</h5>
         <div className="tradingrow">
           Select currency pair:{' '}
-          <select>
+          <select classname="strategyfield">
             <option value="ETH-OMG">ETH-OMG</option>
             <option value="BTC-ETH">BTC-ETH</option>
             <option value="BTC-OMG">BTC-OMG</option>
           </select>
           <form>
             Execution price:{' '}
-            <input type="number" value="value" placeholder="Price" />
+            <input
+              classname="strategyfield"
+              type="number"
+              value="value"
+              placeholder="Price"
+            />
           </form>
-          Activate
-          <select>
-            <option value="True">True</option>
-            <option value="False">False</option>
-          </select>
-          Trade
-          <select>
+          Trade:
+          <select classname="strategyfield">
             <option value="tradebuy">Buy</option>
             <option value="tradesell">Sell</option>
           </select>
-          Trade type
-          <select>
+          Trade type:
+          <select classname="strategyfield">
             <option value="supportLine">Support</option>
             <option value="resistanceLine">Resistance</option>
           </select>
           <form>
             Quantity to hold:{' '}
-            <input type="number" value="quantity" placeholder="Quantity" />
+            <input
+              classname="strategyfield"
+              type="number"
+              value="quantity"
+              placeholder="Quantity"
+            />
           </form>
+          Activate:
+          <select classname="strategyfield">
+            <option value="True">True</option>
+            <option value="False">False</option>
+          </select>
           <button onClick={this.props.createStrategy}>Submit</button>
         </div>
       </div>
