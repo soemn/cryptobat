@@ -28,7 +28,7 @@ class Orders extends Component {
   render() {
     return (
       <div>
-        <span>Open Orders</span>
+        <h5>Open Orders</h5>
         <table className="responsive-table highlight">
           <thead>
             <tr>

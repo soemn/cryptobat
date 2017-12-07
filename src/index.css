@@ -23,23 +23,39 @@ iframe {
 body {
   background-color: #011423;
   color: white;
+  font-family: "Roboto", sans-serif;
+  margin: 0;
+}
+a {
+  color: #0094c6;
 }
 
 /*tr:nth-child(odd) {
   background-color: blue;
 }*/
 
-nav {
+.nav-extended {
   background-color: black;
+  margin-bottom: 40px;
+}
+
+.tabs {
+  color: #0094c6;
 }
 
 button {
-  background-color: blue;
+  background-color: #6f9ceb;
 }
-.logo {
+.logo h2 {
   font-family: "Dhurjati", sans-serif;
+  margin: 0;
   /*font-size: 40px;*/
   /*display: block;*/
+}
+
+h5 {
+  color: #2176af;
+  margin: 0;
 }
 
 .tradingrow {
