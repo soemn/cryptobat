@@ -19,7 +19,7 @@ export default (state = initialState, action) => {
 }
 
 export const getBalance = () => dispatch => {
-  axios.get("http://localhost/accountSummary").then(response => {
+  axios.get("http://localhost:9000/accountSummary").then(response => {
     let allBalance = response.data.result
     return dispatch({
       type: GETBALANCE,
