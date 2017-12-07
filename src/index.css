@@ -8,7 +8,7 @@ select {
 
 iframe {
   position: static;
-  top: 0;
+  top: 20%;
   left: 20%;
   width: 100%;
   height: 100%;
@@ -16,17 +16,27 @@ iframe {
   border: 0;
 }
 .container {
-  width: 0 auto;
+  width: 90%;
+  margin: 0 auto;
 }
+
+body {
+  background-color: #011423;
+  color: white;
+}
+
+/*tr:nth-child(odd) {
+  background-color: blue;
+}*/
 
 nav {
   background-color: black;
 }
 
-.appName {
-  font-family: 'Dhurjati', sans-serif;
-  font-size: 80px;
-  display: inline;
+.logo {
+  font-family: "Dhurjati", sans-serif;
+  /*font-size: 40px;*/
+  /*display: block;*/
 }
 
 .tradingrow {
@@ -50,7 +60,7 @@ nav {
   height: 15%;
 }
 
-.left-account-summary {
+/*#left-account-summary {
   border: 1px solid black;
   position: absolute;
   top: 15%;
@@ -58,9 +68,9 @@ nav {
   display: block;
   width: 15%;
   height: 80%;
-}
+}*/
 
-.top-chart {
+#top-chart {
   border: 1px solid black;
   position: absolute;
   top: 15%;
@@ -70,16 +80,16 @@ nav {
   height: 60%;
 }
 
-.middle-orders {
+/*#middle-orders {
   border: 1px solid black;
   position: absolute;
   top: 75%;
   left: 20%;
   display: block;
   width: 60%;
-  height: 20%;
+  height: 10%;
   overflow: scroll;
-}
+}*/
 
 .top-right-news {
   border: 1px solid black;

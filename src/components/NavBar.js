@@ -9,9 +9,9 @@ const NavBar = props => (
   <nav className="nav-extended">
     <div className="container">
       <div className="nav-wrapper">
-        <a href="#" className="brand-logo">
-          CRYPTOBAT
-        </a>
+        <div className="logo">
+          <h2>CRYPTOBAT</h2>
+        </div>
       </div>
       <div className="nav-content">
         <ul className="tabs tabs-transparent">

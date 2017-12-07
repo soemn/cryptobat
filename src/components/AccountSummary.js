@@ -31,8 +31,8 @@ class AccountSummary extends Component {
     return (
       <div>
         <h5>Account Summary</h5>
-        <li>{this.showCurrency(this.props.currency1)}</li>
-        <li>{this.showCurrency(this.props.currency2)}</li>
+        {this.showCurrency(this.props.currency1)}
+        {this.showCurrency(this.props.currency2)}
       </div>
     )
   }

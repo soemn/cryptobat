@@ -29,7 +29,7 @@ class Orders extends Component {
     return (
       <div>
         <span>Open Orders</span>
-        <table className="responsive-table striped highlight">
+        <table className="responsive-table highlight">
           <thead>
             <tr>
               <th>Exchange</th>
