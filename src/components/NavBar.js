@@ -8,7 +8,6 @@ import { chooseCurrPair } from "../reducers/navBar"
 const NavBar = props => (
   <div>
     <header className="navigation-bar">
-      <h4>CRYPTOBAT</h4>
       Currency Pair:
       {/* <select> that updates navBar currency state onChange */}
       <select id="selectBox" onChange={props.chooseCurrPair}>
@@ -17,9 +16,11 @@ const NavBar = props => (
         </option>
         <option value="BTC-ETH">BTC-ETH</option>
         <option value="BTC-OMG">BTC-OMG</option>
-      </select>
-      | <Link to="/">Trade View</Link> |
+      </select>{" "}
+      |
+      <Link to="/">Trade View</Link> |
       <Link to="/tradehistory"> Trade History</Link>
+      <h4 className="appName">CRYPTOBAT</h4>
     </header>
   </div>
 )
