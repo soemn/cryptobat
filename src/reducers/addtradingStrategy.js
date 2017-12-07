@@ -11,7 +11,7 @@ export default (state = initialState, action) => {
   switch (action.type) {
     case CREATE_STRATEGY:
       alert("CREATE_STRAT called")
-      // document.getElementsByClassName('strategySelect').
+
       return {
         ...state,
         strategies: 1
@@ -27,26 +27,15 @@ export default (state = initialState, action) => {
 }
 
 export const createStrategy = () => dispatch => {
-  let marketName = ""
-  switch (document.getElementsByClassName("strategyfield")[0].selectedIndex) {
-    case 1:
-      marketName = "ETH-OMG"
-      break
-    case 2:
-      marketName = "BTC-ETH"
-      break
-    case 3:
-      marketName = "BTC-OMG"
-      break
-    default:
-      alert("currency market not picked")
-  }
+  let marketName = document.getElementsByClassName("strategyfield")[0].value
 
-  console.log(document.getElementsByClassName("strategyfield")[1])
+  let strategyType = document.getElementsByClassName("strategyfield")[3].value
 
-  // if (document.getElementsByClassName("strategyfield")[0].selectedIndex == 1) {
-  //   marketName = "ETH-OMG"
-  // }
+  let executionPrice = document.getElementsByClassName("strategyfield")[1].value
+
+  let tradeBuyOrSell = document.getElementsByClassName("strategyfield")[2].value
+
+  let quantityToHold = document.getElementsByClassName("strategyfield")[4].value
 
   axios
     .post("http://localhost:9000/tradingstrategy", {
@@ -55,15 +44,15 @@ export const createStrategy = () => dispatch => {
       // true by default
       Active: true,
       // strategy type/name
-      Type: "supportLine",
+      Type: strategyType,
       // execution price
-      Value: 0.027,
+      Value: executionPrice,
       // tradebuy or tradesell
-      TradeType: "tradebuy",
+      TradeType: tradeBuyOrSell,
       // quantity to hold?
-      Quantity: 10,
+      Quantity: quantityToHold,
       // same as value
-      Rate: 0.027
+      Rate: executionPrice
     })
     .then(function(response) {
       // console.log(response)
