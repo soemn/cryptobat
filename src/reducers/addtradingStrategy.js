@@ -27,12 +27,33 @@ export default (state = initialState, action) => {
 }
 
 export const createStrategy = () => dispatch => {
+  let marketName = ""
+  switch (document.getElementsByClassName("strategyfield")[0].selectedIndex) {
+    case 1:
+      marketName = "ETH-OMG"
+      break
+    case 2:
+      marketName = "BTC-ETH"
+      break
+    case 3:
+      marketName = "BTC-OMG"
+      break
+    default:
+      alert("currency market not picked")
+  }
+
+  console.log(document.getElementsByClassName("strategyfield")[1])
+
+  // if (document.getElementsByClassName("strategyfield")[0].selectedIndex == 1) {
+  //   marketName = "ETH-OMG"
+  // }
+
   axios
     .post("http://localhost:9000/tradingstrategy", {
       // BTC-ETH, BTC-OMG or ETH-OMG
-      MarketName: "ETH-BTC",
-      // false by default
-      Active: false,
+      MarketName: marketName,
+      // true by default
+      Active: true,
       // strategy type/name
       Type: "supportLine",
       // execution price
