@@ -20,7 +20,7 @@ const Home = props => (
         </div>
       </div>
       <div className="col s8">
-        <div id="top-chart">{/* {<Chart />} */}</div>
+        <div id="top-chart">{<Chart />}</div>
         <div id="middle-orders">
           <Route exact path="/" component={Orders} />
         </div>
@@ -35,15 +35,19 @@ const Home = props => (
         <Route exact path="/" component={AltData} />
       </div> */}
     </div>
-    <div className="col s12">
-      <div className="bottom-trading-strategy">
-        <Route exact path="/" component={AddTradingStrategy} />
+    <div className="row">
+      <div className="col s12">
+        <div className="bottom-trading-strategy">
+          <Route exact path="/" component={AddTradingStrategy} />
+        </div>
       </div>
     </div>
 
-    <div className="col s12">
-      <div className="bottom-show-trading-strategy">
-        <Route exact path="/" component={ShowTradingStrategies} />
+    <div className="row">
+      <div className="col s12">
+        <div className="bottom-show-trading-strategy">
+          <Route exact path="/" component={ShowTradingStrategies} />
+        </div>
       </div>
     </div>
   </div>

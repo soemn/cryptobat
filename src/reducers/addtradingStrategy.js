@@ -10,7 +10,7 @@ const initialState = {
 export default (state = initialState, action) => {
   switch (action.type) {
     case CREATE_STRATEGY:
-      alert("CREATE_STRAT called")
+      alert("Strategy added!")
 
       return {
         ...state,

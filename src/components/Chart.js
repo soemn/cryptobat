@@ -19,16 +19,19 @@ class Chart extends Component {
       theme: 'Dark',
       style: '1',
       locale: 'en',
-      toolbar_bg: '#f1f3f6',
+      toolbar_bg: 'rgba(1,20,35,1)',
       enable_publishing: false,
       allow_symbol_change: true,
       hideideas: true
     })`
     document.body.appendChild(tradingWidget)
+    let iframeDiv = document.querySelector("iframe")
+    let chartDiv = document.getElementById("chart")
+    chartDiv.appendChild(iframeDiv)
   }
 
   render() {
-    return <div id="testing123" />
+    return <div id="chart" />
   }
 }
 

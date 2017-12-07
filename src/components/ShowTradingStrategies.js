@@ -23,9 +23,11 @@ class ShowTradingStrategies extends Component {
           <td>{strategy.executions[0].TradeType}</td>
           <td>{strategy.conditions[0].Value}</td>
           <td>{strategy.executions[0].Quantity}</td>
-          <button onClick={() => this.props.deleteStrategy(strategy._id)}>
-            Delete
-          </button>
+          <td>
+            <button onClick={() => this.props.deleteStrategy(strategy._id)}>
+              Delete
+            </button>
+          </td>
         </tr>
       )
     })
