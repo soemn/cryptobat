@@ -30,11 +30,9 @@ class AccountSummary extends Component {
   render() {
     return (
       <div>
-        <ul id="slide-out" className="side-nav fixed">
-          <h5>Account Summary</h5>
-          <li>{this.showCurrency(this.props.currency1)}</li>
-          <li>{this.showCurrency(this.props.currency2)}</li>
-        </ul>
+        <h5>Account Summary</h5>
+        <li>{this.showCurrency(this.props.currency1)}</li>
+        <li>{this.showCurrency(this.props.currency2)}</li>
       </div>
     )
   }

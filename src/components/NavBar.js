@@ -29,9 +29,6 @@ const NavBar = props => (
           <li className="tab">
             <Link to="/">Trade View</Link>
           </li>
-          <li className="tab">
-            <Link to="/tradehistory"> Trade History</Link>
-          </li>
         </ul>
       </div>
     </div>

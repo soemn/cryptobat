@@ -15,6 +15,13 @@ iframe {
   margin: 0 auto;
   border: 0;
 }
+.container {
+  width: 0 auto;
+}
+
+nav {
+  background-color: black;
+}
 
 .appName {
   font-family: "Dhurjati", sans-serif;
