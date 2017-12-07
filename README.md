@@ -2,6 +2,8 @@
 
 An automatic trading and insights platform.
 
+View the demo site at [cryptobat.](https://cryptobat.herokuapp.com/)
+
 Planning done on
 [Dropbox Paper.](https://paper.dropbox.com/doc/Project-4-CryptoBat-WBpU2pfVkhp0x8H9ibBPz)
 

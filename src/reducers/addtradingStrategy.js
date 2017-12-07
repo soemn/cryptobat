@@ -38,7 +38,7 @@ export const createStrategy = () => dispatch => {
   let quantityToHold = document.getElementsByClassName("strategyfield")[4].value
 
   axios
-    .post("http://18.217.105.121/tradingstrategy", {
+    .post("http://localhost:9000/tradingstrategy", {
       // BTC-ETH, BTC-OMG or ETH-OMG
       MarketName: marketName,
       // true by default

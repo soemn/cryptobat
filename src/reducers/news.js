@@ -19,7 +19,7 @@ export default (state = initialState, action) => {
 }
 
 export const loadNews = (state = initialState) => dispatch => {
-  axios.get("http://18.217.105.121/cryptoPanic/").then(response => {
+  axios.get("http://localhost:9000/cryptoPanic/").then(response => {
     let allResponses = response
 
     return dispatch({

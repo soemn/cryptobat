@@ -25,7 +25,7 @@ export default (state = initialState, action) => {
 }
 
 export const getStrategies = () => dispatch => {
-  axios.get("http://18.217.105.121/showAllStrategies").then(response => {
+  axios.get("http://localhost:9000/showAllStrategies").then(response => {
     let allStrategiesFromDB = response.data
     return dispatch({
       type: SHOW_STRATEGIES,
@@ -36,7 +36,7 @@ export const getStrategies = () => dispatch => {
 
 export const deleteStrategy = id => dispatch => {
   axios
-    .post("http://18.217.105.121/deleteStrategy", {
+    .post("http://localhost:9000/deleteStrategy", {
       _id: id
     })
     .then(response => {
