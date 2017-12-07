@@ -173,7 +173,7 @@ app.listen(port, () => {
 
 // =================== trader function ===================
 
-const autoTrade = schedule.scheduleJob("*/5 * * * * *", trader)
+const autoTrade = schedule.scheduleJob("*/10 * * * * *", trader)
 
 // =================== end of trader function ===================
 
