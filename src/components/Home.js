@@ -37,7 +37,7 @@ const Home = props => (
     </div>
     <div className="row">
       <div className="col s12">
-        <div className="bottom-trading-strategy">
+        <div className="bottom-trading-strategy ">
           <Route exact path="/" component={AddTradingStrategy} />
         </div>
       </div>

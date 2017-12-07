@@ -25,7 +25,7 @@ class Chart extends Component {
       hideideas: true
     })`
     document.body.appendChild(tradingWidget)
-    let iframeDiv = document.querySelector("iframe")
+    let iframeDiv = document.querySelector('div[id^="tradingview_"]')
     let chartDiv = document.getElementById("chart")
     chartDiv.appendChild(iframeDiv)
   }
