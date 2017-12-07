@@ -1,9 +1,9 @@
-import React, { Component } from "react"
-import { connect } from "react-redux"
-import { push } from "react-router-redux"
-import { bindActionCreators } from "redux"
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { push } from 'react-router-redux'
+import { bindActionCreators } from 'redux'
 
-import { createStrategy, deleteStrategy } from "../reducers/tradingStrategy"
+import { createStrategy, deleteStrategy } from '../reducers/tradingStrategy'
 
 class TradingStrategy extends Component {
   componentDidMount() {}
@@ -20,7 +20,27 @@ class TradingStrategy extends Component {
             <option value="BTC-OMG">BTC-OMG</option>
           </select>
           <form>
-            Buy/Sell:<input type="number" placeholder="Price" />
+            Execution price:{' '}
+            <input type="number" value="value" placeholder="Price" />
+          </form>
+          Activate
+          <select>
+            <option value="True">True</option>
+            <option value="False">False</option>
+          </select>
+          Trade
+          <select>
+            <option value="tradebuy">Buy</option>
+            <option value="tradesell">Sell</option>
+          </select>
+          Trade type
+          <select>
+            <option value="supportLine">Support</option>
+            <option value="resistanceLine">Resistance</option>
+          </select>
+          <form>
+            Quantity to hold:{' '}
+            <input type="number" value="quantity" placeholder="Quantity" />
           </form>
           <button onClick={this.props.createStrategy}>Submit</button>
         </div>
@@ -40,7 +60,7 @@ const mapDispatchToProps = dispatch =>
     {
       createStrategy,
       deleteStrategy,
-      changePage: () => push("/TradingStrategy")
+      changePage: () => push('/TradingStrategy')
     },
     dispatch
   )
