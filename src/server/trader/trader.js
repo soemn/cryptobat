@@ -80,10 +80,51 @@ const runEachExecution = (execution, tokenPair) => {
       return new Promise((resolve, reject) => {
         getBalance(currency2).then(balance => {
           console.log("balance of " + currency2 + " is " + balance)
-          if (balance < execution.Quantity) {
-            console.log("buying more " + currency2)
-            resolve(true)
-          } else console.log("You have enough " + currency2)
+
+          getAllPendingBuyOrders(tokenPair).then(allPendingBuyOrders => {
+            console.log(
+              "You have " +
+                allPendingBuyOrders +
+                " pending buy orders of " +
+                tokenPair
+            )
+            if (balance + allPendingBuyOrders < execution.Quantity) {
+              let quantityToBuy =
+                execution.Quantity - balance - allPendingBuyOrders
+
+              // check if you have enough money to buy
+              getBalance(currency1).then(yourCurrency => {
+                if (yourCurrency > quantityToBuy * execution.Rate) {
+                  console.log(
+                    "You have enough " +
+                      currency1 +
+                      ", buying more " +
+                      currency2
+                  )
+
+                  // !!! executing trade !!!
+                  bittrex.tradebuy(
+                    {
+                      MarketName: tokenPair,
+                      OrderType: execution.OrderType,
+                      Quantity: quantityToBuy,
+                      Rate: execution.Rate,
+                      TimeInEffect: execution.TimeInEffect,
+                      ConditionType: execution.ConditionType,
+                      Target: execution.Target
+                    },
+                    function(data, err) {
+                      if (err) {
+                        console.error(err)
+                      } else console.log(data)
+                    }
+                  )
+                }
+              })
+
+              resolve(true)
+            } else console.log("Buying: You already have enough " + currency2)
+          })
         })
         resolve(true)
       })
@@ -108,12 +149,14 @@ const runEachExecution = (execution, tokenPair) => {
                 Target: execution.Target
               },
               function(data, err) {
-                console.log(data)
+                if (err) {
+                  console.error(err)
+                } else console.log(data)
               }
             )
 
             resolve(true)
-          } else console.log("You do not have enough " + currency2)
+          } else console.log("Selling: You do not have enough " + currency2)
         })
         resolve(true)
       })

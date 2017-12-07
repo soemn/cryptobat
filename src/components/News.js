@@ -1,8 +1,8 @@
-import React, { Component } from "react"
-import { connect } from "react-redux"
-import { push } from "react-router-redux"
-import { bindActionCreators } from "redux"
-import { loadNews } from "../reducers/news"
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { push } from 'react-router-redux'
+import { bindActionCreators } from 'redux'
+import { loadNews } from '../reducers/news'
 
 class News extends Component {
   componentDidMount() {
@@ -33,7 +33,7 @@ class News extends Component {
   render() {
     return (
       <div>
-        <h6>News</h6>
+        <h6>{this.props.currency2} News </h6>
         <ol>{this.getHeadlines(this.props.currencyToUse)}</ol>
       </div>
     )
@@ -49,7 +49,7 @@ const mapDispatchToProps = dispatch =>
   bindActionCreators(
     {
       loadNews,
-      changePage: () => push("/News")
+      changePage: () => push('/News')
     },
     dispatch
   )

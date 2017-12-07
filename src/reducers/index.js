@@ -6,7 +6,7 @@ import news from "./news"
 import accountSummary from "./accountSummary"
 import navBar from "./navBar"
 import openOrders from "./openOrders"
-import tradingStrategy from "./tradingStrategy"
+import addtradingStrategy from "./addtradingStrategy"
 import showTradingStrategies from "./showTradingStrategies"
 
 export default combineReducers({
@@ -17,6 +17,6 @@ export default combineReducers({
   news,
   navBar,
   openOrders,
-  tradingStrategy,
+  addtradingStrategy,
   showTradingStrategies
 })

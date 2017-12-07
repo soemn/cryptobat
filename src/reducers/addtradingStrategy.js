@@ -1,7 +1,7 @@
 import axios from "axios"
 
-export const CREATE_STRATEGY = "tradingStrategy/CREATE_STRATEGY"
-export const DELETE_STRATEGY = "tradingStrategy/DELETE_STRATEGY"
+export const CREATE_STRATEGY = "addtradingStrategy/CREATE_STRATEGY"
+export const DELETE_STRATEGY = "addtradingStrategy/DELETE_STRATEGY"
 
 const initialState = {
   strategies: 0

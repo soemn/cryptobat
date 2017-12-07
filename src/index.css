@@ -15,7 +15,7 @@ iframe {
 }
 
 .appName {
-  font-family: "Dhurjati", sans-serif;
+  font-family: 'Dhurjati', sans-serif;
   font-size: 80px;
   display: inline;
 }
@@ -23,8 +23,9 @@ iframe {
 .tradingrow {
   display: flex;
   flex-direction: row;
-  margin: 10px;
   flex: 1 1 auto;
+  margin-right: 10px;
+  height: 30px;
   justify-content: space-between;
 }
 
