@@ -1,29 +1,29 @@
-import React, { Component } from 'react'
-import { connect } from 'react-redux'
-import { push } from 'react-router-redux'
-import { bindActionCreators } from 'redux'
+import React, { Component } from "react"
+import { connect } from "react-redux"
+import { push } from "react-router-redux"
+import { bindActionCreators } from "redux"
 
-import { createStrategy, deleteStrategy } from '../reducers/tradingStrategy'
+import { createStrategy, deleteStrategy } from "../reducers/tradingStrategy"
 
 class TradingStrategy extends Component {
-  componentDidMount() {
-    // this.props.createStrategy()
-    // this.props.deleteStrategy()
-  }
+  componentDidMount() {}
 
   render() {
     return (
-      <div>
+      <div className="TradingStrategy">
         <h5>Trading Strategy</h5>
-        <select>
-          <option value="ETH-OMG">ETH-OMG</option>
-          <option value="BTC-ETH">BTC-ETH</option>
-          <option value="BTC-OMG">BTC-OMG</option>
-        </select>
-        <form>
-          Buy/Sell:<input type="number" placeholder="Price" />
-        </form>
-        <button onClick={this.props.createStrategy}>Submit</button>
+        <div className="tradingrow">
+          Select currency pair:{' '}
+          <select>
+            <option value="ETH-OMG">ETH-OMG</option>
+            <option value="BTC-ETH">BTC-ETH</option>
+            <option value="BTC-OMG">BTC-OMG</option>
+          </select>
+          <form>
+            Buy/Sell:<input type="number" placeholder="Price" />
+          </form>
+          <button onClick={this.props.createStrategy}>Submit</button>
+        </div>
       </div>
     )
   }
@@ -40,7 +40,7 @@ const mapDispatchToProps = dispatch =>
     {
       createStrategy,
       deleteStrategy,
-      changePage: () => push('/TradingStrategy')
+      changePage: () => push("/TradingStrategy")
     },
     dispatch
   )
