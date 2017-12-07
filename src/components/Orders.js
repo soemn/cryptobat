@@ -1,8 +1,8 @@
-import React, { Component } from 'react'
-import { connect } from 'react-redux'
-import { push } from 'react-router-redux'
-import { bindActionCreators } from 'redux'
-import { getOpenOrders } from '../reducers/openOrders'
+import React, { Component } from "react"
+import { connect } from "react-redux"
+import { push } from "react-router-redux"
+import { bindActionCreators } from "redux"
+import { getOpenOrders } from "../reducers/openOrders"
 
 class Orders extends Component {
   componentWillMount() {
@@ -28,7 +28,11 @@ class Orders extends Component {
   render() {
     return (
       <div>
-        <span>Open Orders</span>
+        <span>
+          <b>
+            <u>Open Orders</u>
+          </b>
+        </span>
         <table className="responsive-table striped highlight">
           <thead>
             <tr>
@@ -56,7 +60,7 @@ const mapDispatchToProps = dispatch =>
   bindActionCreators(
     {
       getOpenOrders,
-      changePage: () => push('/Orders')
+      changePage: () => push("/Orders")
     },
     dispatch
   )

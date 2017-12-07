@@ -54,21 +54,15 @@ export const createStrategy = () => dispatch => {
       // same as value
       Rate: executionPrice
     })
-    .then(function(response) {
-      // console.log(response)
-    })
-    .catch(function(error) {
-      // console.log(error)
-    })
+    .then(function(response) {})
+    .catch(function(error) {})
   return dispatch({
     type: CREATE_STRATEGY
   })
 }
 
 export const deleteStrategy = () => dispatch => {
-  // console.log('action triggered. strategy index:' + id)
   return dispatch({
     type: DELETE_STRATEGY
-    // id: id
   })
 }
