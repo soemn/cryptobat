@@ -56,14 +56,6 @@ class AddTradingStrategy extends Component {
               placeholder="Quantity"
             />
           </form>
-          Activate:
-          <select classname="strategyfield">
-            <option selected hidden>
-              Select
-            </option>
-            <option value="True">True</option>
-            <option value="False">False</option>
-          </select>
           <button onClick={this.props.createStrategy}>ADD</button>
         </div>
       </div>

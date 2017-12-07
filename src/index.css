@@ -15,7 +15,7 @@ iframe {
 }
 
 .appName {
-  font-family: "Dhurjati", sans-serif;
+  font-family: 'Dhurjati', sans-serif;
   font-size: 80px;
   display: inline;
 }
@@ -25,6 +25,7 @@ iframe {
   flex-direction: row;
   flex: 1 1 auto;
   margin-right: ;
+
   /*justify-content: space-between;*/
 }
 
