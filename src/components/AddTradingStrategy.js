@@ -15,6 +15,9 @@ class AddTradingStrategy extends Component {
         <div className="tradingrow">
           Select currency pair:{' '}
           <select classname="strategyfield">
+            <option selected hidden>
+              Select
+            </option>
             <option value="ETH-OMG">ETH-OMG</option>
             <option value="BTC-ETH">BTC-ETH</option>
             <option value="BTC-OMG">BTC-OMG</option>
@@ -30,11 +33,17 @@ class AddTradingStrategy extends Component {
           </form>
           Trade:
           <select classname="strategyfield">
+            <option selected hidden>
+              Select
+            </option>
             <option value="tradebuy">Buy</option>
             <option value="tradesell">Sell</option>
           </select>
           Trade type:
           <select classname="strategyfield">
+            <option selected hidden>
+              Select
+            </option>
             <option value="supportLine">Support</option>
             <option value="resistanceLine">Resistance</option>
           </select>
@@ -47,11 +56,6 @@ class AddTradingStrategy extends Component {
               placeholder="Quantity"
             />
           </form>
-          Activate:
-          <select classname="strategyfield">
-            <option value="True">True</option>
-            <option value="False">False</option>
-          </select>
           <button onClick={this.props.createStrategy}>ADD</button>
         </div>
       </div>
