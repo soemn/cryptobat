@@ -20,9 +20,21 @@ const Balance = require("./models/balance")
 const trader = require("./trader/trader")
 const { getNews } = require("./news")
 
+let whitelist = [
+  "http://api.domain.com",
+  "http://app.domain.com",
+  "http://localhost:3000"
+]
+
 let corsOptions = {
   credentials: true,
-  origin: ["http://localhost:3000"],
+  origin: function(origin, callback) {
+    if (whitelist.indexOf(origin) !== -1) {
+      callback(null, true)
+    } else {
+      callback(new Error("Not allowed by CORS"))
+    }
+  },
   methods: "GET,PUT,PATCH,POST,DELETE",
   preflightContinue: true
 }
