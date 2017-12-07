@@ -167,6 +167,12 @@ app.post("/tradingstrategy", (req, res) => {
   newStrategy.save()
 })
 
+app.get("/showAllStrategies", (req, res) => {
+  Strategy.find({}, (err, response) => {
+    res.json(response)
+  })
+})
+
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`)
 })

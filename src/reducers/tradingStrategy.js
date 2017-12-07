@@ -29,13 +29,20 @@ export default (state = initialState, action) => {
 export const createStrategy = () => dispatch => {
   axios
     .post("http://localhost:9000/tradingstrategy", {
-      MarketName: "TEST marketname",
+      // BTC-ETH, BTC-OMG or ETH-OMG
+      MarketName: "ETH-BTC",
+      // false by default
       Active: false,
-      Type: "TEST type",
-      Value: 456,
-      TradeType: "TEST TradeType",
-      Quantity: 9999,
-      Rate: 123
+      // strategy type/name
+      Type: "supportLine",
+      // execution price
+      Value: 0.027,
+      // tradebuy or tradesell
+      TradeType: "tradebuy",
+      // quantity to hold?
+      Quantity: 10,
+      // same as value
+      Rate: 0.027
     })
     .then(function(response) {
       // console.log(response)
@@ -45,7 +52,6 @@ export const createStrategy = () => dispatch => {
     })
   return dispatch({
     type: CREATE_STRATEGY
-    // strategy: strategy
   })
 }
 

@@ -7,6 +7,7 @@ import accountSummary from "./accountSummary"
 import navBar from "./navBar"
 import openOrders from "./openOrders"
 import tradingStrategy from "./tradingStrategy"
+import showTradingStrategies from "./showTradingStrategies"
 
 export default combineReducers({
   routing: routerReducer,
@@ -16,5 +17,6 @@ export default combineReducers({
   news,
   navBar,
   openOrders,
-  tradingStrategy
+  tradingStrategy,
+  showTradingStrategies
 })
