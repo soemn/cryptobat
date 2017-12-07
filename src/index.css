@@ -121,3 +121,13 @@ nav {
   width: 90%;
   height: 30%;
 }
+
+.bottom-show-trading-strategy {
+  border: 1px solid black;
+  position: absolute;
+  top: 125%;
+  left: 5%;
+  display: block;
+  width: 90%;
+  height: 30%;
+}

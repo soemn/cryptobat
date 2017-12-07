@@ -1,7 +1,7 @@
-import axios from 'axios'
+import axios from "axios"
 
-export const CREATE_STRATEGY = 'addtradingStrategy/CREATE_STRATEGY'
-export const DELETE_STRATEGY = 'addtradingStrategy/DELETE_STRATEGY'
+export const CREATE_STRATEGY = "addtradingStrategy/CREATE_STRATEGY"
+export const DELETE_STRATEGY = "addtradingStrategy/DELETE_STRATEGY"
 
 const initialState = {
   strategies: 0
@@ -10,8 +10,8 @@ const initialState = {
 export default (state = initialState, action) => {
   switch (action.type) {
     case CREATE_STRATEGY:
-      alert('CREATE_STRAT called')
-      // document.getElementsByClassName('strategySelect').
+      alert("CREATE_STRAT called")
+
       return {
         ...state,
         strategies: 1
@@ -27,15 +27,32 @@ export default (state = initialState, action) => {
 }
 
 export const createStrategy = () => dispatch => {
+  let marketName = document.getElementsByClassName("strategyfield")[0].value
+
+  let strategyType = document.getElementsByClassName("strategyfield")[3].value
+
+  let executionPrice = document.getElementsByClassName("strategyfield")[1].value
+
+  let tradeBuyOrSell = document.getElementsByClassName("strategyfield")[2].value
+
+  let quantityToHold = document.getElementsByClassName("strategyfield")[4].value
+
   axios
-    .post('http://localhost:9000/tradingstrategy', {
-      MarketName: 'TEST marketname',
-      Active: false,
-      Type: 'TEST type',
-      Value: 456,
-      TradeType: 'TEST TradeType',
-      Quantity: 9999,
-      Rate: 123
+    .post("http://localhost:9000/tradingstrategy", {
+      // BTC-ETH, BTC-OMG or ETH-OMG
+      MarketName: marketName,
+      // true by default
+      Active: true,
+      // strategy type/name
+      Type: strategyType,
+      // execution price
+      Value: executionPrice,
+      // tradebuy or tradesell
+      TradeType: tradeBuyOrSell,
+      // quantity to hold?
+      Quantity: quantityToHold,
+      // same as value
+      Rate: executionPrice
     })
     .then(function(response) {
       // console.log(response)
@@ -45,7 +62,6 @@ export const createStrategy = () => dispatch => {
     })
   return dispatch({
     type: CREATE_STRATEGY
-    // strategy: strategy
   })
 }
 

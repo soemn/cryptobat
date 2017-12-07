@@ -13,6 +13,13 @@ class AddTradingStrategy extends Component {
       <div className="TradingStrategy">
         <h5>Add trading strategy</h5>
         <div className="tradingrow">
+          Select currency pair:{" "}
+          <select defaultValue="Select" className="strategyfield">
+            <option hidden>Select</option>
+            <option value="ETH-OMG">ETH-OMG</option>
+            <option value="BTC-ETH">BTC-ETH</option>
+            <option value="BTC-OMG">BTC-OMG</option>
+          </select>
           <form>
             Select currency pair:{" "}
             <select classname="strategyfield">
@@ -25,32 +32,28 @@ class AddTradingStrategy extends Component {
             </select>
             Execution price:{" "}
             <input
-              classname="strategyfield"
+              className="strategyfield"
               type="number"
-              value="value"
               placeholder="Price"
             />
-            Trade:
-            <select classname="strategyfield">
-              <option selected hidden>
-                Select
-              </option>
-              <option value="tradebuy">Buy</option>
-              <option value="tradesell">Sell</option>
-            </select>
-            Trade type:
-            <select classname="strategyfield">
-              <option selected hidden>
-                Select
-              </option>
-              <option value="supportLine">Support</option>
-              <option value="resistanceLine">Resistance</option>
-            </select>
+          </form>
+          Trade:
+          <select defaultValue="Select" className="strategyfield">
+            <option hidden>Select</option>
+            <option value="tradebuy">Buy</option>
+            <option value="tradesell">Sell</option>
+          </select>
+          Trade type:
+          <select defaultValue="Select" className="strategyfield">
+            <option hidden>Select</option>
+            <option value="supportLine">Support</option>
+            <option value="resistanceLine">Resistance</option>
+          </select>
+          <form>
             Quantity to hold:{" "}
             <input
-              classname="strategyfield"
+              className="strategyfield"
               type="number"
-              value="quantity"
               placeholder="Quantity"
             />
             <button onClick={this.props.createStrategy}>ADD</button>

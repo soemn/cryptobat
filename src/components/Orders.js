@@ -1,8 +1,8 @@
-import React, { Component } from "react"
-import { connect } from "react-redux"
-import { push } from "react-router-redux"
-import { bindActionCreators } from "redux"
-import { getOpenOrders } from "../reducers/openOrders"
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { push } from 'react-router-redux'
+import { bindActionCreators } from 'redux'
+import { getOpenOrders } from '../reducers/openOrders'
 
 class Orders extends Component {
   componentWillMount() {
@@ -40,6 +40,7 @@ class Orders extends Component {
               <th>Quantity Remaining</th>
             </tr>
           </thead>
+
           <tbody>{this.showOpenOrders()}</tbody>
         </table>
       </div>
@@ -55,7 +56,7 @@ const mapDispatchToProps = dispatch =>
   bindActionCreators(
     {
       getOpenOrders,
-      changePage: () => push("/Orders")
+      changePage: () => push('/Orders')
     },
     dispatch
   )
