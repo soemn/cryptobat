@@ -15,11 +15,11 @@ iframe {
 }
 
 .tradingrow {
-  /*display: inline-flex;
-  margin: 20px 20px 20px 20px;*/
   display: flex;
   flex-direction: row;
-  margin: auto;
+  margin: 10px;
+  flex: 1 1 auto;
+  justify-content: space-between;
 }
 
 .navigation-bar {
