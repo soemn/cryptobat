@@ -19,7 +19,7 @@ export default (state = initialState, action) => {
 }
 
 export const getOpenOrders = () => dispatch => {
-  axios.get("http://localhost:9000/openorders").then(response => {
+  axios.get("http://18.217.105.121/openorders").then(response => {
     let allOpenOrders = response.data.result
     return dispatch({
       type: GETOPENORDERS,

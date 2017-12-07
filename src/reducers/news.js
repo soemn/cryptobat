@@ -1,9 +1,9 @@
-import axios from 'axios'
+import axios from "axios"
 
-export const LOADNEWS = 'reducers/LOADNEWS'
+export const LOADNEWS = "reducers/LOADNEWS"
 
 const initialState = {
-  headlines: [{ title: '', url: '' }]
+  headlines: [{ title: "", url: "" }]
 }
 
 export default (state = initialState, action) => {
@@ -19,7 +19,7 @@ export default (state = initialState, action) => {
 }
 
 export const loadNews = (state = initialState) => dispatch => {
-  axios.get('http://localhost:9000/cryptoPanic/').then(response => {
+  axios.get("http://18.217.105.121/cryptoPanic/").then(response => {
     let allResponses = response
 
     return dispatch({
