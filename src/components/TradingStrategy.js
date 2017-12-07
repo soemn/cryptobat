@@ -10,17 +10,20 @@ class TradingStrategy extends Component {
 
   render() {
     return (
-      <div>
+      <div className="TradingStrategy">
         <h5>Trading Strategy</h5>
-        <select>
-          <option value="ETH-OMG">ETH-OMG</option>
-          <option value="BTC-ETH">BTC-ETH</option>
-          <option value="BTC-OMG">BTC-OMG</option>
-        </select>
-        <form>
-          Buy/Sell:<input type="number" placeholder="Price" />
-        </form>
-        <button onClick={this.props.createStrategy}>Submit</button>
+        <div className="tradingrow">
+          Select currency pair:{' '}
+          <select>
+            <option value="ETH-OMG">ETH-OMG</option>
+            <option value="BTC-ETH">BTC-ETH</option>
+            <option value="BTC-OMG">BTC-OMG</option>
+          </select>
+          <form>
+            Buy/Sell:<input type="number" placeholder="Price" />
+          </form>
+          <button onClick={this.props.createStrategy}>Submit</button>
+        </div>
       </div>
     )
   }
