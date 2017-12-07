@@ -1,7 +1,9 @@
 select {
   display: inline;
   height: auto;
-  width: 8%;
+  width: auto;
+  color: black;
+  margin-left: 10px;
 }
 
 iframe {

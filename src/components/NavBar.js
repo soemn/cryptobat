@@ -6,23 +6,36 @@ import { bindActionCreators } from "redux"
 import { chooseCurrPair } from "../reducers/navBar"
 
 const NavBar = props => (
-  <div>
-    <header className="navigation-bar">
-      Currency Pair:
-      {/* <select> that updates navBar currency state onChange */}
-      <select id="selectBox" onChange={props.chooseCurrPair}>
-        <option value="ETH-OMG">
-          {props.currency1}-{props.currency2}
-        </option>
-        <option value="BTC-ETH">BTC-ETH</option>
-        <option value="BTC-OMG">BTC-OMG</option>
-      </select>{" "}
-      |
-      <Link to="/">Trade View</Link> |
-      <Link to="/tradehistory"> Trade History</Link>
-      <h4 className="appName">CRYPTOBAT</h4>
-    </header>
-  </div>
+  <nav className="nav-extended">
+    <div className="container">
+      <div className="nav-wrapper">
+        <a href="#" className="brand-logo">
+          CRYPTOBAT
+        </a>
+      </div>
+      <div className="nav-content">
+        <ul className="tabs tabs-transparent">
+          <li className="tab">
+            Currency Pair:
+            {/* <select> that updates navBar currency state onChange */}
+            <select id="selectBox" onChange={props.chooseCurrPair}>
+              <option value="ETH-OMG">
+                {props.currency1}-{props.currency2}
+              </option>
+              <option value="BTC-ETH">BTC-ETH</option>
+              <option value="BTC-OMG">BTC-OMG</option>
+            </select>
+          </li>
+          <li className="tab">
+            <Link to="/">Trade View</Link>
+          </li>
+          <li className="tab">
+            <Link to="/tradehistory"> Trade History</Link>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 )
 
 const mapStateToProps = state => ({
