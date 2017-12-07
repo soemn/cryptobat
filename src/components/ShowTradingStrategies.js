@@ -2,7 +2,10 @@ import React, { Component } from "react"
 import { connect } from "react-redux"
 import { push } from "react-router-redux"
 import { bindActionCreators } from "redux"
-import { getStrategies } from "../reducers/showTradingStrategies"
+import {
+  getStrategies,
+  deleteStrategy
+} from "../reducers/showTradingStrategies"
 
 class ShowTradingStrategies extends Component {
   componentWillMount() {
@@ -11,6 +14,7 @@ class ShowTradingStrategies extends Component {
 
   showStrategies() {
     let allStrategies = this.props.allStrategiesFromDB
+    console.log(allStrategies)
     return allStrategies.map((strategy, key) => {
       return (
         <tr key={key}>
@@ -19,6 +23,9 @@ class ShowTradingStrategies extends Component {
           <td>{strategy.executions[0].TradeType}</td>
           <td>{strategy.conditions[0].Value}</td>
           <td>{strategy.executions[0].Quantity}</td>
+          <button onClick={() => this.props.deleteStrategy(strategy._id)}>
+            Delete
+          </button>
         </tr>
       )
     })
@@ -52,6 +59,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch =>
   bindActionCreators(
     {
+      deleteStrategy,
       getStrategies,
       changePage: () => push("/ShowTradingStrategies")
     },
